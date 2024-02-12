@@ -1,0 +1,643 @@
+/* global $, getWidth */
+/* jshint -W100 */
+var url_ie = '/templates/Filmix/modal/ie/',
+    url_br = '/templates/Filmix/modal/browser/',
+    routes = {
+        'authblock': 'authorization.html',
+        'added-info': 'added_info.html',
+        'register': 'registration.html',
+        'register-2': 'registration2.html',
+        'register-3': 'registration3.html',
+        'after_registration': 'after_registration.html',
+        'rules': 'rules.html',
+        'rules_comment': 'rules_comment.html',
+        'pllist': 'pllist_add.html',
+        'pllist_edit': 'pllist_edit.html',
+        'beta': 'beta.html',
+        'deals': 'deals.html',
+        'add_frames': 'add_frames.html',
+        'edit_frames': 'add_frames.html',
+        'add_posters': 'add_posters.html',
+        'edit_posters': 'add_posters.html',
+        'bugs': 'bugs.html',
+        'restorpass': 'restorpass.html',
+        'feedback': 'feedback_login.html',
+        'user': 'spam_friend.html',
+        'pm': 'spam_msg.html',
+        'sendEmail': 'sent_email.html',
+        'help': 'rating_profile.html',
+        'help-film': 'rating_film.html',
+        'list-files': 'torrent_listfiles.html',
+        'changeImg': 'cut_photo_social.html',
+        'mediainfo': 'mediainfo.html',
+        'add_photo_cat': 'add_photo_cat.html',
+        'edit_order': 'edit_order.html',
+        'status_order': 'status_order.html'
+    };
+
+function openModal(element) {
+    var dialog = window.Site.Dialog,
+        controller = $(element).attr('data-action'),
+        title = $(element).attr('data-title'),
+        url = (msieversion()) ? url_ie + routes[controller] : url_br + routes[controller],
+        provider = ($(element).attr('data-provider')) ? $(element).attr('data-provider') : '';
+
+    var name = '';
+    switch (controller) {
+        case 'rules':
+        case 'pllist':
+        case 'help-film':
+        case 'added-info':
+        case 'rules_comment':
+        case 'add_photo_cat':
+        case 'help':
+            dialog.argDialog.width = getWidth();
+            break;
+        case 'beta':
+            dialog.argDialog.width = getWidth();
+            dialog.close('#bugs');
+            dialog.close('#deals');
+            break;
+        case 'after_registration':
+            dialog.argDialog.width = 800;
+            break;
+        case 'add_posters':
+        case 'edit_posters':
+        case 'add_frames':
+        case 'edit_frames':
+            dialog.argDialog.width = getWidthFrame();
+            dialog.argDialog.close = function() {
+                $('#add_frames textarea').val('');
+                $('.actors .item').each(function(index, el) {
+                    var id = $(this).attr('data-id');
+                    $(this).remove();
+                    $('#actors-' + id).remove();
+                });
+            };
+            break;
+        case 'feedback':
+            dialog.argDialog.width = getWidth();
+            dialog.close('#register');
+            break;
+        case 'user':
+            dialog.argDialog.width = getWidth();
+            name = $(element).closest('.message').find('.name').text();
+            $('.modal-block').addClass('spam-block');
+            break;
+        case 'pm':
+            dialog.argDialog.width = getWidth();
+            name = $(element).closest('.message-item').find('.message-name').text();
+            var dialogID = $('.messages-list').attr('data-dialog-id'),
+                msg = $(element).closest('.message-text').attr('data-message');
+            $('.modal-block').addClass('spam-block').addClass('message');
+            break;
+        case 'sendEmail':
+            dialog.argDialog.width = getWidth();
+            var userID = $(element).attr('data-friend');
+            break;
+        case 'list-files':
+            dialog.argDialog.width = 700;
+            break;
+        case 'changeImg':
+            dialog.argDialog.width = 880;
+            break;
+        case 'mediainfo':
+            dialog.argDialog.width = getWidth();
+            dialog.argDialog.height = 600;
+            break;
+    }
+
+    $('.modal-block').attr({
+        'data-action': controller,
+        'data-controller': controller,
+        'title': title,
+        'id': controller
+    });
+
+    $.get(url, function(data) {
+        $('.modal-block .dialog-content').html(data);
+        var id = 0;
+        switch (controller) {
+            case 'pllist':
+                if (dle_group === 1 || dle_group === 2) {
+                    var section_select = '<span class="pllist-section"><span class="title-section">В подборках:</span>';
+                    section_select += '<div class="pl-section" id="pl-section"><span class="span icon-arowDown">Не выбрано</span>';
+                    section_select += '<input type="hidden" value="public" name="section" class="plSection">'
+                    section_select += '<span class="access-items">';
+                    section_select += '<div class="access-item">Не выбрано<input type="hidden" value="none"></div>';
+                    section_select += '<div class="access-item">Фильмы<input type="hidden" value="films"></div>';
+                    section_select += '<div class="access-item">Сериалы<input type="hidden" value="serials"></div>';
+                    section_select += '<div class="access-item">Мультфильмы<input type="hidden" value="multfilm"></div>';
+                    section_select += '</span></div></span>';
+                    $('.access').after(section_select);
+                } else {
+                    $('.access-items').css('height', '60px');
+                    $('.access').find('input[value=public]').closest('.access-item').remove();
+                    $('.access').find('input[value=private]').closest('.access-item').trigger('click');
+                }
+            case 'user':
+                id = $(element).attr('data-id');
+                $('body').find('#friend-id').val(id);
+                $('body').find('.name-form').text(name);
+                break;
+            case 'pm':
+                $('body').find('#dialog-id').val(dialogID);
+                $('body').find('.name-form').text(name);
+                $('body').find('#message_id').val(msg);
+                break;
+            case 'sendEmail':
+                $('.modal-block').find('.userId').val(userID);
+                $.post('/engine/ajax/helper.php', {
+                    query: 'my_credentials'
+                }, function(array) {
+                    $('.sendFromEmail').val(array.login + ' <' + array.email + '>');
+                    $('#email').val(array.email);
+                }, 'json');
+                break;
+            case 'rules':
+            case 'rules_comment':
+            case 'help':
+                break;
+            case 'list-files':
+                break;
+            case 'mediainfo':
+                id = $(element).attr('data-id');
+                $.post('/api/torrent/get_mediainfo', {
+                    id: id
+                }, function(data) {
+                    $('#mediainfo .box-article').append(data.message);
+                }, 'json');
+                break;
+            case 'changeImg':
+                $.post('engine/ajax/social.photo.php', {
+                    getPhotoFromSocial: provider.split(' ')[0]
+                }, function(data) {
+                    if (data !== '') {
+                        $('#loadingImg').hide();
+                        $('.photoBlock').show();
+                        $('#mainAvatar, #preview').attr('src', data.url);
+                        $('.add-photo').css('opacity', '1');
+                        $('#f_name').val(data.name);
+                        $('#mainAvatar').cropper({
+                            aspectRatio: 21 / 30,
+                            preview: '.pr_profile',
+                            built: function(e) {
+                                var img = $(this).cropper('getCanvasData');
+                                $(this).cropper('setCropBoxData', img);
+                                $('.preview-block').show();
+                            },
+                            movable: false,
+                            zoomOnWheel: false
+                        });
+                    } else {
+                        common.showInfo('Ошыбка!');
+                        return false;
+                    }
+                }, 'json');
+                break;
+            case 'add_frames':
+            case 'add_posters':
+                id = $('.frames').attr('data-id');
+                $('.modal-block #post_id').val(id);
+                $('.block-1').show();
+                break;
+            case 'edit_posters':
+                addPreloader('modal-block');
+
+                id = $(element).attr('data-id');
+                post_id = $(element).attr('data-post-id');
+
+                $('#add_poster').attr('id', 'edit_poster');
+                $('#post_id').remove();
+                $('.form-submit').removeClass('disabled').val('Редактировать').removeAttr('disabled');
+
+                $.post('/api/posters/info', {
+                    id: id
+                }, function(response) {
+                    if (response.type == 'success') {
+                        $('.block-1').hide();
+                        $('.block-2').show();
+
+                        data_curr = {
+                            image: response.message.image,
+                            post_id: post_id,
+                            frame_id: id,
+                            time: Date.now(),
+                            actors: response.message.actors.split(','),
+                            comment: response.message.comment,
+                            characters: response.message.characters
+                        };
+
+                        var templ = $('#form_frame_edit').html();
+                        $('#edit_poster').prepend(tmpl(templ, data_curr));
+                        $('.preloader').remove();
+                    } else {
+                        common.showInfo(response.message);
+                    }
+                }, 'json');
+                break;
+            case 'edit_frames':
+                addPreloader('modal-block');
+
+                id = $(element).attr('data-id');
+                post_id = $(element).attr('data-post-id');
+
+                $('#add_frame').attr('id', 'edit_frame');
+                $('#post_id, .rules').remove();
+                $('.form-submit').val('Редактировать').css('margin-left', '15px');
+
+                $.post('/api/frames/info', {
+                    id: id
+                }, function(response) {
+                    if (response.type == 'success') {
+                        $('.block-1').hide();
+                        $('.block-2').show();
+
+                        var data = {
+                            image: response.message.image,
+                            post_id: post_id,
+                            frame_id: id,
+                            time: Date.now(),
+                            actors: response.message.actors.split(','),
+                            comment: response.message.comment,
+                            characters: response.message.characters
+                        };
+
+                        var templ = $('#form_frame_edit').html();
+                        $('#edit_frame').prepend(tmpl(templ, data));
+                        $('.preloader').remove();
+                    } else {
+                        common.showInfo(response.message);
+                    }
+                }, 'json');
+                break;
+            case 'added-info':
+                id = $(element).closest('article').attr('data-id');
+                $.post('/api/movies/get_episodes', {
+                    post_id: id
+                }, function(data) {
+                    var arr_series = {},
+                        arr_date = [];
+                    var month = ['янв', 'фев', 'март', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+                    $.each(data.message, function(index, val) {
+
+                        var item = {
+                            id: val.id,
+                            season: val.season,
+                            episode: val.episode,
+                            translation: val.translation,
+                            time: val.date.split(' ')[1].substring(0, 5)
+                        };
+                        var now = new Date(),
+                            today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).valueOf(),
+                            perehod = val.date.split(' '),
+                            other = new Date(perehod[0].replace(/(\d+)-(\d+)-(\d+)/, '$2/$3/$1'));
+
+
+                        if (other.valueOf() < today - 86400000) { // 24*60*60*1000
+                            var normal_date = perehod[0].split('-');
+                            if (!Array.isArray(arr_series[perehod[0]])) {
+                                arr_series[perehod[0]] = [];
+                            }
+                            if ($.inArray(perehod[0], arr_date) == -1)
+                                arr_date.push(perehod[0]);
+                            arr_series[perehod[0]].push(item);
+                        } else if (other.valueOf() < today) {
+                            if (!Array.isArray(arr_series['Вчера'])) {
+                                arr_series['Вчера'] = [];
+                                arr_date.push('Вчера');
+                            }
+                            arr_series['Вчера'].push(item);
+                        } else if (other.valueOf() > today) {
+                            return;
+                        } else {
+                            if (!Array.isArray(arr_series['Сегодня'])) {
+                                arr_series['Сегодня'] = [];
+                                arr_date.push('Сегодня');
+                            }
+                            arr_series['Сегодня'].push(item);
+                        }
+                    });
+                    arr_date.sort();
+
+                    $('.added-item').html('');
+                    $.each(arr_date, function(index, val) {
+                        var block = $('<div class="added-item"></div>');
+                        $.each(arr_series[val], function(number, el) {
+                            var item = '<div class="added-series"><div class="added-block">';
+                            item += '<div class="number"> ' + el.episode + ' cерия </div>';
+                            item += '<div class="season"> (' + el.season + ' cезон) </div>';
+                            if (el.translation.length)
+                                item += '<div class="translation"> - ' + el.translation + ' </div>';
+                            item += '</div><div class="time">' + el.time + '</div></div>';
+                            block.prepend(item);
+                        });
+                        var normal_date = val.split('-');
+                        if (normal_date.length > 1) {
+                            normal_date = normal_date[2] + ' ' + month[normal_date[1] - 1] + ' ' + normal_date[0];
+                        } else {
+                            normal_date = normal_date[0];
+                        }
+                        block.prepend('<div class="added-title">' + normal_date + '</div>');
+                        $('#block-scroll').prepend(block);
+                    });
+                }, 'json');
+                break;
+            case 'add_photo_cat':
+                $.post('/api/page/pictures', {
+                    url: window.location.pathname
+                }, function(result) {
+                    if (result.type === 'success') {
+                        if (result.message.length) {
+                            var out = '';
+                            $.each(result.message, function(index, value) {
+                                out += '<div class="img">';
+                                out += '<img src="' + value.file + value.picture + '" alt="' + value.alt_name + '" title="' + value.title + '">';
+                                out += '<span class="answer"><b>Ответ: </b>' + value.text + '</span>';
+                                out += '<span class="answer"><b>Altname: </b>' + value.alt_name + '</span>';
+                                out += '<span class="answer"><b>Title: </b>' + value.title + '</span>';
+                                out += '<span class="delete icon-delete"></span>';
+                                out += '</div>';
+                            });
+                            $('.part-1').append(out).addClass('no-empty');
+                        } else {
+                            $('.part-1').append('У вас пока нет картинок');
+                        }
+                    }
+                }, 'json');
+                break;
+            case 'edit_order':
+                $.post('/api/orders/info', {
+                    id: $(element).attr('data-id')
+                }, function(result) {
+                    console.log(result);
+                    $('.ui-dialog .current-item-input').val(result.message.type);
+                    $('.ui-dialog .current-item-input-hidden').val(result.message.type);
+                    $('.ui-dialog .type-item:contains(' + result.message.type + ')').addClass('active');
+                    $('.ui-dialog input[name=name]').val(result.message.name);
+                    $('.ui-dialog input[name=original_name]').val(result.message.original_name);
+                    $('.ui-dialog input[name=prod_year]').val(result.message.prod_year);
+                    $('.ui-dialog input[name=source_link]').val(result.message.source_link);
+                    $('.ui-dialog textarea[name=description]').val(result.message.description);
+                    $('.ui-dialog .order-form').append('<input type="hidden" name="id" value="' + result.message.id + '">');
+                }, 'json');
+                break;
+            case 'status_order':
+                var id = $(element).attr('data-id'),
+                    form = $('.order-form-status'),
+                    order = $('.order[data-id=' + id + ']'),
+                    text = $(order).find('.mark-status').text();
+                $(form).find('#order-id').val(id);
+                $(form).find('label:contains(' + text + ')').trigger('click');
+                if (text === 'Выполнено') {
+                    var url = $(order).find('.complete-url').text().trim();
+                    $(form).find('input[name=url_complete]').val(url);
+                }
+                break;
+        }
+        dialog.argDialog.close = function() {
+            $('#' + controller).remove();
+            if (!$('body').find('.modal-block').length) {
+                $('.page-wrapper').append('<div class="modal-block" id="" data-controller="" data-action="" title=""><div class="dialog-content"></div></div>');
+            }
+        };
+        dialog.argDialog.open = function() {
+            $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+        };
+        dialog.open('#' + controller);
+        $('.ui-dialog-titlebar-close').addClass('icon-close');
+        $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+    });
+}
+
+function openModalSpecial(element, id, prefix) {
+    var dialog = window.Site.Dialog,
+        controller = $(element).attr('data-action'),
+        url = (msieversion()) ? url_ie + routes[controller] : url_br + routes[controller];
+
+    switch (controller) {
+        case 'register':
+            dialog.argDialog.width = 500;
+            dialog.close('#authblock');
+            dialog.close('#feedback');
+            break;
+        case 'register-2':
+            dialog.argDialog.width = 500;
+            dialog.close('#register');
+            break;
+        case 'register-3':
+            dialog.argDialog.width = 600;
+            dialog.close('#register-2');
+            break;
+        case 'restorpass':
+            dialog.argDialog.width = 390;
+            dialog.close('#authblock');
+            break;
+        case 'after_registration':
+            dialog.argDialog.width = 500;
+            break;
+    }
+
+    $('.modal-block').attr('id', controller).addClass(controller).addClass('modal-container');
+    dialog.argDialog.close = function() {
+        $('#' + controller).remove();
+        if (!$('body').find('.modal-block').length) {
+            $('.page-wrapper').append('<div class="modal-block" id="" data-controller="" data-action="" title=""><div class="dialog-content"></div></div>');
+        }
+    };
+
+    $.get(url, function(data) {
+        $('.modal-block').html(data);
+        switch (controller) {
+            case 'register-3':
+                $('input[name="reg_id"]').val(id);
+                var script_2 = document.createElement('script');
+                script_2.src = '/templates/Filmix/media/public/js/' + window.prefix + '_jcrop.js';
+                document.getElementsByTagName('head')[0].appendChild(script_2);
+                break;
+            case 'register-2':
+                $.post('/engine/ajax/helper.php', {
+                    query: 'countries_list'
+                }, function(array) {
+                    array.forEach(function(item, index) {
+                        $('#country .select-items').append('<span class="select-item" data-id="' + item.id + '">' + item.name + '</span>');
+                    });
+                }, 'json');
+                var curr_year = new Date().getFullYear();
+                for (var i = curr_year - 6; i > curr_year - 90; i--) {
+                    $('#birth_year .select-items').append('<span class="select-item" data-id="' + i + '">' + i + '</span>');
+                }
+                $('input[name="reg_id"]').val(id);
+                break;
+            case 'register':
+                $.post('/engine/ajax/helper.php', {
+                    query: 'reg_data'
+                }, function(key) {
+                    sitekey = key.recaptcha_key;
+                    $('.modal-block').html(data);
+                    $('.modal-block .vk a').attr('href', key.vk_url);
+                    $('.modal-block .tw a').attr('href', key.site_url + 'index.php?do=from-social&twitter_auth');
+                    $('.modal-block .fb a').attr('href', key.fc_url);
+                    $('.modal-block .gp a').attr('href', key.google_url);
+                    $('.modal-block .mr a').attr('href', key.mailru_url);
+                    $('.modal-block .od a').attr('href', key.od_url);
+                    $('.modal-block .ya a').attr('href', key.yandex_url);
+                    $('#dle-captcha a').on('click', function(e) {
+                        e.preventDefault();
+                        var a = (new Date).getTime();
+                        $("#dle-captcha img").attr('src', "/engine/modules/antibot/antibot.php?rndval=" + a);
+                    });
+                }, 'json');
+                break;
+            case 'restorpass':
+                $('.modal-block').html(data);
+                $('#dle-captcha a').on('click', function(e) {
+                    e.preventDefault();
+                    var a = (new Date).getTime();
+                    $("#dle-captcha img").attr('src', "/engine/modules/antibot/antibot.php?rndval=" + a);
+                });
+                break;
+            case 'after_registration':
+                $('#after_registration header').height(80);
+                $('.user_name').text(id);
+                break;
+        }
+        dialog.argDialog.open = function() {
+            $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+        };
+        dialog.open('#' + controller);
+        $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+        $('.ui-dialog-titlebar').hide();
+    });
+}
+
+function loadContent() {
+    var controller = $(this).attr('data-action'),
+        url = (msieversion() !== 'IE') ? url_br + routes[controller] : url_ie + routes[controller],
+        title = $(this).attr('data-title');
+
+    $('#beta').attr({
+        'data-action': controller,
+        'data-controller': controller,
+        'title': title
+    });
+
+    $('.modal-block .dialog-content').load(url, function() {
+        if (dle_group == 5) $('.modal-block .dialog-content').addClass('user-info');
+    });
+
+}
+
+function msieversion() {
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))
+        return true;
+    else
+        return false;
+}
+var sitekey = '';
+var onloadCallback = function() {};
+var onloadCallbackRegister = function() {};
+
+function getWidthFrame() {
+    var winWid = $(window).width();
+    if (winWid < 1340) {
+        return 940;
+    } else if (winWid < 1950) {
+        return 1200;
+    } else if (winWid > 1950) {
+        return 1500;
+    }
+}
+
+
+
+$(document).on('ready', function() {
+
+    /*========= SUBMIT LOSTPASSWORD FORM */
+
+    $('body').on('submit', '#lostPasswordForm', function(e) {
+        e.preventDefault();
+        var dialog = window.Site.Dialog;
+        $('#lostPasswordForm button[type=submit]').addClass('fbutton_blocker').attr('disabled', 'disabled');
+        $.post('/engine/ajax/user_auth.php', $(this).serialize(), function(data) {
+            if (data.type == 'success') {
+                dialog.close('#restorpass');
+                common.showInfo(data.error, 20000);
+            } else {
+                $('#lostPasswordForm button[type=submit]').removeAttr("disabled").removeClass('fbutton_blocker');
+                common.showInfo(data.error, 10000);
+                var a = (new Date).getTime();
+                $("#dle-captcha img").attr('src', "/engine/modules/antibot/antibot.php?rndval=" + a);
+            }
+        }, 'json');
+    });
+
+    /*======== END SUBMIT LOSTPASSWORD ===========*/
+
+    if ($('#main').hasClass('torrent')) {
+        $.post('/engine/ajax/helper.php', {
+            query: 'download_info'
+        }, function(data) {
+            $('body').append('<div class="modal-block-torrent" id="" data-controller="" data-action="" title=""><div class="dialog-content"></div></div>');
+            $('.modal-block-torrent .dialog-content').html(data);
+        });
+    }
+
+    $('body').on('click', '.special.help', function() {
+        var dialog = window.Site.Dialog,
+            controller = $(this).attr('data-action'),
+            title = $(this).attr('data-title');
+        dialog.argDialog.width = 770;
+        dialog.argDialog.height = 550;
+
+        $('.modal-block-torrent').show();
+        $('.modal-block-torrent').attr({
+            'data-action': controller,
+            'data-controller': controller,
+            'title': title,
+            'id': controller
+        });
+
+        dialog.argDialog.open = function() {
+            $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+        };
+        dialog.open('#' + controller);
+        $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+    });
+
+    $('body').on('click', '.guest', function (e) {
+        var dialog = window.Site.Dialog,
+            controller = $(this).attr('data-action');
+        if (typeof controller === 'undefined')
+            controller = $(e).attr('data-action');
+    
+        dialog.argDialog.width = 340;
+        dialog.close("#restorpass");
+    
+        $.post('/api/auth/social_data', function(data) {
+            var socials = data.message,
+                templ = $('#auth_modal').html();
+    
+            $('body').append(tmpl(templ, socials));
+    
+            $('.modal-block-authorization').attr({
+                'data-action': controller,
+                'data-controller': controller,
+                'id': controller
+            });
+    
+            $('.modal-block-authorization').addClass(controller).addClass('modal-container');
+    
+            dialog.argDialog.open = function() {
+                $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+            };
+    
+            dialog.open('#' + controller);
+            $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+            $('.ui-dialog-titlebar').hide();
+        }, 'json');
+    });
+});

@@ -1,0 +1,2431 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="windows-1251" />
+<title>Смотреть фильмы онлайн в отличном FHD качестве</title>
+<meta name="description" content="Просмотр фильмов онлайн в отличном FHD качестве и без регистрации." />
+<meta name="keywords" content="" /><meta name="author" content="Filmix"/><meta property="og:type" content="website" />
+<meta property="og:url" content="https://filmix.zone/" />
+<meta property="og:site_name" content="Filmix" />
+<meta property="og:title" content="Смотреть фильмы онлайн в отличном FHD качестве" />
+<meta property="og:description" content="Просмотр фильмов онлайн в отличном FHD качестве и без регистрации." />
+<meta property="og:image" content="https://filmix.zone/templates/Filmix/media/img/filmix.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="70" />
+<meta property="og:image:height" content="70" />
+
+<link rel="dns-prefetch" href="https://thumbs.filmix.zone/" >
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Security-Policy" content="default-src * blob: data: 'unsafe-inline' 'unsafe-eval'; script-src * blob: data: 'unsafe-inline' 'unsafe-eval'; connect-src * data: 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; child-src * blob: data: ; style-src * 'unsafe-inline';" />
+		<link rel="preload" href="../templates/Filmix/media/fonts/icomoon/fonts/icomoon.ttf@vl6whr" as="font" crossorigin>
+		<link rel="preload" href="../templates/Filmix/media/fonts/Roboto/roboto-v20-latin_cyrillic-700italic.woff2" as="font" crossorigin>
+		<link rel="preload" href="../templates/Filmix/media/fonts/Roboto/roboto-v20-latin_cyrillic-500.woff2" as="font" crossorigin>
+		<link rel="preload" href="../templates/Filmix/media/fonts/Roboto/roboto-v20-latin_cyrillic-italic.woff2" as="font" crossorigin>
+		<link rel="preload" href="../templates/Filmix/media/fonts/Roboto/roboto-v20-latin_cyrillic-700.woff2" as="font" crossorigin>
+		<link rel="preload" href="../templates/Filmix/media/fonts/Roboto/roboto-v20-latin_cyrillic-regular.woff2" as="font" crossorigin>
+		<link rel="icon" href="../templates/Filmix/media/img/favicon.ico" type="image/x-icon" />
+		
+		<link rel="next" href="https://filmix.zone/films/pages/2/" />
+		<link rel="canonical" href="index.html" />
+		
+		
+		<link rel="stylesheet" href="../templates/Filmix/media/public/css/cat.css@v=b7ede7f7dbcfb065edf61b9147e6e095.css">
+		
+		<!--  Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYLWSWSZ3C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GYLWSWSZ3C');
+</script>
+	</head>
+	<body class=" body-guest">
+		
+		<div id="YNORhbcP"></div>
+		<div id="branding_zone"></div>
+		
+		<div class="page-wrapper">
+			<header id="header" class="header-f">
+				<div class="container">
+					<a href="../index.html" class="logo">Filmix</a>
+					<div class="search">
+	<form method="post" class="search_header" role="search">
+		<div class="search-wrap icon-search">
+			<input type="text" name="story" id="search" placeholder="Что ищем?" autocomplete="off" >
+			<label class="visually-hidden" for="search">Поиск</label>
+			<input type="hidden" name="do" value="search" />
+			<input type="hidden" name="simple" value="1" />
+			<input type="hidden" name="subaction" value="search" />
+			<input class="f_submited" type="submit" value="">
+			<a href="../search.html" class="costumSearch" rel="nofollow">расширенный поиск</a>
+			<span class="close-search icon-close"></span>
+		</div>
+	</form>
+	<div class="searchResults">
+	</div>
+</div>
+<script type="text/html" id="search_quick_item">
+	<% if (message && message.posts && message.posts.length) { %>
+		<div class="search-quick-item-title">Фильмы и сериалы</div>
+		<% for (var i = 0, l = message.posts.length; i < l; i++) { %>
+			<div class="search-quick-item" id="<%=message.posts[i].id%>">
+				<a href="https://filmix.zone/films/&lt;%=message.posts[i].link%&gt;">
+					<img src="https://filmix.zone/films/&lt;%=message.posts[i].poster%&gt;" class="poster" loading="lazy">
+					<div class="right">
+						<div class="title"><%=message.posts[i].title%></div>
+						<div class="original-title"><%=message.posts[i].original_name%></div>
+						<div>
+							<span class="year"><%=message.posts[i].year%></span>
+							<span class="category"><%=message.posts[i].categories%></span>
+						</div>
+						<% if (message.posts[i].last_serie !== '') { %>
+							<div class="additional-info"><span class="left">Добавлена:</span> <%=message.posts[i].last_serie%></div>
+						<% } %>
+					</div>
+				</a>
+				<% if (dle_group === 1 || dle_group === 2) { %>
+					<a href="https://filmix.zone/films/&lt;%=site_root&#32;+&#32;'admin.php?mod=editnews&amp;action=editnews&amp;id='&#32;+&#32;message.posts[i].id%&gt;" target="_blank" class="edit icon-adminEdit"></a>
+				<% } %>
+			</div>
+		<% } %>
+	<% } %>
+	<% if (message && message.persons && message.persons.length) { %>
+		<div class="search-quick-item-title">Персоны</div>
+		<% for (var i = 0, l = message.persons.length; i < l; i++) { %>
+			<div class="search-quick-item" id="<%=message.persons[i].id%>">
+				<a href="https://filmix.zone/films/&lt;%=message.persons[i].link%&gt;">
+					<img src="https://filmix.zone/films/&lt;%=message.persons[i].poster%&gt;" class="poster" loading="lazy">
+					<div class="right">
+						<div class="title"><%=message.persons[i].title%></div>
+						<div class="original-title"><%=message.persons[i].original_name%></div>
+						<% if (message.persons[i].birth_year) { %>
+							<div class="year"><%=message.persons[i].birth_year%><% if (message.persons[i].death_year) { %> - <%=message.persons[i].death_year%> <% } %></div>
+						<% } %>
+					</div>
+				</a>
+			</div>
+		<% } %>
+	<% } %>
+</script>
+					
+
+<nav class="header-menu">
+	<ul>
+		<li>
+			
+				
+				
+					<span class="menu-title">Фильмы</span>
+				
+			
+			
+			<div class="sub-nav-wrapper">
+				<ul class="sub-main-nav col-one new-style">
+					<li class="hasul">
+						<span class="data-page" data-page="https://filmix.zone/films/">Все фильмы</span>
+					</li>
+					<li class="nomargin">
+						<ul>
+							<li><span class="data-page" data-page="https://filmix.zone/catalog/а">По алфавиту</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/premiere">Премьеры</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/playlists/filmi">Подборки</span></li>
+							<li class="nomargin">
+								<ul class="qualities">
+									<li><span class="data-page" data-page="https://filmix.zone/films/qg/">720p</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/films/qh/">1080p</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/films/q2/">1080p Ultra+</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/films/q4/">4K</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/films/q6/">HDR 1080</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/films/q8/">HDR 4K</span></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="hasul">
+						<span class="subtitle">По странам:</span>
+						<ul>
+							<li><span class="data-page" data-page="https://filmix.zone/films/c996/">Зарубежные</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/films/c6/">Русские</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/films/c64/">Советские</span></li>
+						</ul>
+					</li>
+					<li class="top250-mark"><span class="data-page" data-page="https://filmix.zone/top250/">Топ 250</span></li>
+					<li class="nomargin">
+						<span class="years-line"><span class="data-page" data-page="https://filmix.zone/films/y2024/" >2024</span><span class="data-page" data-page="https://filmix.zone/films/y2023/" >2023</span><span class="data-page" data-page="https://filmix.zone/films/y2022/" >2022</span></span>
+					</li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/films/animes/">Аниме</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/biografia/">Биография</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/boevik/">Боевики</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/vesterny/">Вестерн</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/voennyj/">Военный</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/detektivy/">Детектив</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/detskij/">Детский</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/for_adults/">Для взрослых</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/dokumentalenyj/">Документальные</span></li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/films/drama/">Драмы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/istoricheskie/">Исторический</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/komedia/">Комедии</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/korotkometragka/">Короткометражка</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/kriminaly/">Криминал</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/melodrama/">Мелодрамы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/mistika/">Мистика</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/music/">Музыка</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/muzkl/">Мюзикл</span></li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/films/novosti/">Новости</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/original/">Оригинал</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/otechestvennye/">Отечественные</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/tvs/">Передачи с ТВ</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/prikluchenija/">Приключения</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/realnoe_tv/">Реальное ТВ</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/semejnye/">Семейный</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/sports/">Спорт</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/tok_show/">Ток-шоу</span></li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/films/triller/">Триллеры</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/uzhasu/">Ужасы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/fantastiks/">Фантастика</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/film_noir/">Фильм-нуар</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/films/fjuntezia/">Фэнтези</span></li>
+					<li><span class="data-page fatter-cat" data-page="https://filmix.zone/films/engl/">На английском</span></li>
+					<li><span class="data-page fatter-cat" data-page="https://filmix.zone/films/ukraine/">На украинском</span></li>
+				</ul>
+				<div class="lucky"><span class="data-page" data-page="https://filmix.zone/random_movie">Случайный</span></div>
+			</div>
+		</li>
+		<li>
+			
+			
+				<span class="menu-title">Сериалы</span>
+			
+			<div class="sub-nav-wrapper">
+				<ul class="sub-main-nav col-one new-style">
+					<li class="hasul"><span class="data-page" data-page="https://filmix.zone/series/">Все сериалы</span></li>
+					<li class="nomargin">
+						<ul>
+							<li><span class="data-page" data-page="https://filmix.zone/catalog/s7/a">По алфавиту</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/playlists/serials">Подборки</span></li>
+							<li class="nomargin">
+								<ul class="qualities">
+									<li><span class="data-page" data-page="https://filmix.zone/series/qg/">720p</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/series/qh/">1080p</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/series/q2/">1080p Ultra+</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/series/q4/">4K</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/series/q6/">HDR 1080</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/series/q8/">HDR 4K</span></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="hasul"><span class="subtitle">По странам:</span>
+						<ul>
+							<li><span class="data-page" data-page="https://filmix.zone/series/c996/">Зарубежные</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/series/c6/">Русские</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/series/c26/">Турецкие</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/series/c54/">Индийские</span></li>
+						</ul>
+					</li>
+					<li class="top250-mark"><span class="data-page" data-page="https://filmix.zone/top250s/">Топ 250</span></li>
+					<li class="nomargin">
+						<span class="years-line"><span class="data-page" data-page="https://filmix.zone/series/y2024/" >2024</span><span class="data-page" data-page="https://filmix.zone/series/y2023/" >2023</span><span class="data-page" data-page="https://filmix.zone/series/y2022/" >2022</span></span>
+					</li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/series/animes/s7/">Аниме</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/biografia/s7/">Биография</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/boevik/s7/">Боевики</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/vesterny/s7/">Вестерн</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/voennyj/s7/">Военный</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/detektivy/s7/">Детектив</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/detskij/s7/">Детский</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/for_adults/s7/">Для взрослых</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/dokumentalenyj/s7/">Документальные</span></li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/series/dorama/s7/">Дорамы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/drama/s7/">Драмы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/game/s7/">Игра</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/istoricheskie/s7/">Исторический</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/komedia/s7/">Комедии</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/kriminaly/s7/">Криминал</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/melodrama/s7/">Мелодрамы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/mistika/s7/">Мистика</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/music/s7/">Музыка</span></li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/series/muzkl/s7/">Мюзикл</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/novosti/s7/">Новости</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/original/s7/">Оригинал</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/otechestvennye/s7/">Отечественные</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/tvs/s7/">Передачи с ТВ</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/prikluchenija/s7/">Приключения</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/realnoe_tv/s7/">Реальное ТВ</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/semejnye/s7/">Семейный</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/sitcom/s7/">Ситком</span></li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/series/sports/s7/">Спорт</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/tok_show/s7/">Ток-шоу</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/triller/s7/">Триллеры</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/uzhasu/s7/">Ужасы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/fantastiks/s7/">Фантастика</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/series/fjuntezia/s7/">Фэнтези</span></li>
+					<li><span class="data-page fatter-cat" data-page="https://filmix.zone/series/engl/s7/">На английском</span></li>
+					<li><span class="data-page fatter-cat" data-page="https://filmix.zone/series/ukraine/s7/">На украинском</span></li>
+				</ul>
+				<div class="lucky"><span class="data-page" data-page="https://filmix.zone/random_serial">Случайный</span></div>
+			</div>
+		</li>
+		<li>
+			
+			
+				<span class="menu-title">Мультфильмы</span>
+			
+			<div class="sub-nav-wrapper mult-wrapper">
+				<ul class="sub-main-nav col-one new-style">
+					<li class="hasul"><span class="data-page" data-page="https://filmix.zone/multes/">Все мультики</span></li>
+					<li class="nomargin">
+						<ul>
+							<li><span class="data-page" data-page="https://filmix.zone/multseries/">Мультсериалы</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/catalog/s14/a">По алфавиту</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/playlists/multfilms">Подборки</span></li>
+							<li class="nomargin">
+								<ul class="qualities">
+									<li><span class="data-page" data-page="https://filmix.zone/multes/qg/">720p</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/multes/qh/">1080p</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/multes/q2/">1080p Ultra+</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/multes/q4/">4K</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/multes/q6/">HDR 1080</span></li>
+									<li><span class="data-page" data-page="https://filmix.zone/multes/q8/">HDR 4K</span></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="hasul"><span class="subtitle">По странам:</span>
+						<ul>
+							<li><span class="data-page" data-page="https://filmix.zone/multes/c996/">Зарубежные</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/multes/c6/">Русские</span></li>
+							<li><span class="data-page" data-page="https://filmix.zone/multes/c64/">Советские</span></li>
+						</ul>
+					</li>
+					<li class="top250-mark"><span class="data-page" data-page="https://filmix.zone/top250m/">Топ 250</span></li>
+					<li class="nomargin">
+						<span class="years-line"><span class="data-page" data-page="https://filmix.zone/multes/y2024/" >2024</span><span class="data-page" data-page="https://filmix.zone/multes/y2023/" >2023</span><span class="data-page" data-page="https://filmix.zone/multes/y2022/" >2022</span></span>
+					</li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/multes/animes/s14/">Аниме</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/biografia/s14/">Биография</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/boevik/s14/">Боевики</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/vesterny/s14/">Вестерн</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/voennyj/s14/">Военный</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/detektivy/s14/">Детектив</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/detskij/s14/">Детский</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/for_adults/s14/">Для взрослых</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/dokumentalenyj/s14/">Документальные</span></li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/multes/drama/s14/">Драмы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/istoricheskie/s14/">Исторический</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/komedia/s14/">Комедии</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/kriminaly/s14/">Криминал</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/melodrama/s14/">Мелодрамы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/mistika/s14/">Мистика</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/music/s14/">Музыка</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/muzkl/s14/">Мюзикл</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/original/s14/">Оригинал</span></li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page" data-page="https://filmix.zone/multes/otechestvennye/s14/">Отечественные</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/prikluchenija/s14/">Приключения</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/semejnye/s14/">Семейный</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/sports/s14/">Спорт</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/triller/s14/">Триллеры</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/uzhasu/s14/">Ужасы</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/fantastiks/s14/">Фантастика</span></li>
+					<li><span class="data-page" data-page="https://filmix.zone/multes/fjuntezia/s14/">Фэнтези</span></li>
+					<li><span class="data-page fatter-cat" data-page="https://filmix.zone/multes/engl/s14/">На английском</span></li>
+				</ul>
+				<ul class="sub-main-nav">
+					<li><span class="data-page fatter-cat" data-page="https://filmix.zone/multes/ukraine/s14/">На украинском</span></li>
+				</ul>
+				<div class="lucky"><span class="data-page" data-page="https://filmix.zone/random_mult">Случайный</span></div>
+			</div>
+		</li>
+		<li><span class="menu-title">Микс</span>
+			<ul class="sub-nav-small-wrapper">
+				<li><span class="data-page" data-page="https://filmix.zone/persons">актеры</span></li>
+				<li><span class="data-page" data-page="https://filmix.zone/reviews">рецензии</span></li>
+				<li><span class="data-page" data-page="https://filmix.zone/news/mynews/">новости кино</span></li>
+				<li><span class="data-page" data-page="https://filmix.zone/soundtracks">саундтреки</span></li>
+				<li><span class="data-page" data-page="https://filmix.zone/trejlery/">трейлеры</span></li>
+				<li><span class="data-page" data-page="https://filmix.zone/order_board">стол заказов</span></li>
+				<li><span class="data-page become-pro" data-page="https://filmix.zone/pro.html">стать <span class="tablet"><span class="red">pro</span><span class="green">pro+</span></span></span></li>
+			</ul>
+		</li>
+		<li><span class="data-page for-4k" data-page="https://filmix.zone/films/q4/">4K</span></li>
+	</ul>
+</nav>
+
+					
+
+<div class="login guest" id="auth" data-action="authblock">
+	<span class="open icon-auth">Авторизация</span>
+</div>
+
+					<div class="notifications">
+	<div class="bell">
+		<noindex>
+		
+		
+		<span class="count"></span>
+		<div class="sub-nav-wrapper">
+			<span class="title"></span>
+			<ul>
+				<li class="item item-auth"></li>
+				<li class="item sad"></li>
+			</ul>
+		</div>
+		
+		</noindex>
+	</div>
+</div>
+
+				</div>
+			</header>
+			
+			
+			
+			
+			<div id="main" class="cat">
+			
+			
+			
+			
+			
+				
+					
+						<div class="container category_slider">
+							<div id="category-slider" class="slider slider-main">
+	<div class="head-title cat-head-title">
+		<div class="subtitle">Сейчас смотрят Фильмы</div>
+	</div>
+    <div class="slider-navigation">
+        <div class="main-buttons">
+            <span class="buttons prev row-left icon-arowLeft"><i class="fa"></i></span>
+            <span class="buttons next row-right icon-arowRight"><i class="fa"></i></span>
+        </div>
+    </div>
+    <div class="additional-buttons">
+        <i class="buttons prev icon-sliderLeft disable"></i>
+        <i class="buttons next icon-sliderRight"></i>
+    </div>
+	<div class="viewport">
+		<ul class="slider-wrap overview" id="news-wrap">
+           <li class="slider-item">
+	<a href="https://filmix.zone/films/boevik/168310-snayper-globalnaya-gruppa-reagirovaniya-i-razvedki-2023.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/3249/thumbs/w220/snayper-globalnaya-gruppa-reagirovaniya-i-razvedki-2023_168310.jpg" class="film-poster poster-tooltip" alt="Снайпер: Глобальная группа реагирования и разведки, 2023" title="Снайпер: Глобальная группа реагирования и разведки, 2023" loading="lazy">
+		</div>
+		<div class="film-name">Снайпер: ...</div>
+	</a>
+</li><li class="slider-item">
+	<a href="https://filmix.zone/films/triller/170245-pchelovod-ts-24-2024.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/2654/thumbs/w220/pchelovod-ts-24-2024_170245.jpg" class="film-poster poster-tooltip" alt="Пчеловод, 2024" title="Пчеловод, 2024" loading="lazy">
+		</div>
+		<div class="film-name">Пчеловод</div>
+	</a>
+</li><li class="slider-item">
+	<a href="https://filmix.zone/films/komedia/135957-3v-striptizershi-2019.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/5652/thumbs/w220/3v-striptizershi-2019_135957.jpg" class="film-poster poster-tooltip" alt="Стриптизёрши, 2019" title="Стриптизёрши, 2019" loading="lazy">
+		</div>
+		<div class="film-name">Стриптизёрши</div>
+	</a>
+</li><li class="slider-item">
+	<a href="https://filmix.zone/films/drama/168415-chestnaya-igra-2023.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/3220/thumbs/w220/chestnaya-igra-2023_168415.jpg" class="film-poster poster-tooltip" alt="Честная игра, 2023" title="Честная игра, 2023" loading="lazy">
+		</div>
+		<div class="film-name">Честная игра</div>
+	</a>
+</li><li class="slider-item">
+	<a href="https://filmix.zone/films/fantastiks/169936-akvamen-i-poteryannoe-carstvo-2023.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/5114/thumbs/w220/akvamen-i-poteryannoe-carstvo-2023_169936.jpg" class="film-poster poster-tooltip" alt="Аквамен и потерянное царство, 2023" title="Аквамен и потерянное царство, 2023" loading="lazy">
+		</div>
+		<div class="film-name">Аквамен и потерянное царство</div>
+	</a>
+</li><li class="slider-item">
+	<a href="https://filmix.zone/films/melodrama/170614-kto-ugodno-krome-tebya-2023.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/3441/thumbs/w220/kto-ugodno-krome-tebya-2023_170614.jpg" class="film-poster poster-tooltip" alt="Кто угодно, кроме тебя, 2023" title="Кто угодно, кроме тебя, 2023" loading="lazy">
+		</div>
+		<div class="film-name">Кто угодно, кроме тебя</div>
+	</a>
+</li><li class="slider-item">
+	<a href="https://filmix.zone/films/fantastiks/170472-pustoshi-2024.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/5300/thumbs/w220/pustoshi-2024_170472.jpg" class="film-poster poster-tooltip" alt="Пустоши, 2024" title="Пустоши, 2024" loading="lazy">
+		</div>
+		<div class="film-name">Пустоши</div>
+	</a>
+</li><li class="slider-item">
+	<a href="https://filmix.zone/films/boevik/167900-dogmen-2023.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/1217/thumbs/w220/dogmen-2023_167900.jpg" class="film-poster poster-tooltip" alt="Догмен, 2023" title="Догмен, 2023" loading="lazy">
+		</div>
+		<div class="film-name">Догмен</div>
+	</a>
+</li><li class="slider-item">
+	<a href="https://filmix.zone/films/boevik/170562-argayl-supershpion-2024.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/3143/thumbs/w220/argayl-supershpion-2024_170562.jpg" class="film-poster poster-tooltip" alt="Аргайл: Супершпион, 2024" title="Аргайл: Супершпион, 2024" loading="lazy">
+		</div>
+		<div class="film-name">Аргайл: Супершпион</div>
+	</a>
+</li><li class="slider-item">
+	<a href="https://filmix.zone/films/drama/169559-master-i-margarita-2023.html">
+		<div class=" slider-img">
+			<img src="https://thumbs.filmix.zone/posters/5711/thumbs/w220/master-i-margarita-2023_169559.jpg" class="film-poster poster-tooltip" alt="Мастер и Маргарита, 2023" title="Мастер и Маргарита, 2023" loading="lazy">
+		</div>
+		<div class="film-name">Мастер и Маргарита</div>
+	</a>
+</li>
+		</ul>
+	</div>
+</div>
+						</div>
+					
+				
+			
+			<div class="container-main main-block">
+				
+					
+					<div class="panel-view">
+						<div class="grid neutral icon-grid" id="OpenGrid"><i class="fa"></i></div>
+						<div class="line neutral icon-list" id="OpenLine"><i class="fa"></i></div>
+					</div>
+					
+				
+				<section class="content" id="content">
+					<!-- BREADCRUMB -->
+					<div id="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+						<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+	<a href="../index.html" itemprop="item" class=""><span itemprop="name">Главная</span></a><meta itemprop="position" content="1" />
+	
+</span>
+<span class="separetor">/</span><span>
+	
+	<span class="active">Фильмы</span>
+</span>
+
+					</div>
+					
+					
+						<div class="head-title">
+					
+						<!-- TITLE -->
+						
+						
+						
+						
+						
+						
+							<div class="subtitle"><h1>Фильмы</h1></div>
+							
+							
+							<div class="description">
+								<div class="full-story">
+									
+								</div>
+								<span id="show-more" class="more show-more-cat"><span class="text icon-arowDown">Больше</span></span>
+							</div>
+							
+							
+						</div>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+					
+					
+					
+					
+					
+						
+						<div class="last-filter">
+							<span class="last-filter-title">ПОСЛЕДНИЕ ФИЛЬТРЫ:</span>
+							<div class="last-filter-block"></div>
+						</div>
+						
+					
+					<!-- SORT -->
+					
+					
+					<div class="filter">
+						
+<div class="count-sort sort">
+	<form method="post">
+		<span class="btn-sort"></span>
+		<div class="sort-items">
+			<span class="sort-item" data-count="15">15</span>
+			<span class="sort-item" data-count="30">30</span>
+			<span class="sort-item" data-count="45">45</span>
+			<span class="sort-item" data-count="60">60</span>
+		</div>
+	</form>
+</div>
+
+<div class="sort custom-sort">
+	<form id="main_movie_sort" method="post">
+		<span>Сортировка</span>
+		<span class="btn-sort" data-type="date">По дате<i class="fa info-fa btn-down icon-arowDown"></i></span>
+		<div class="sort-items">
+			
+			
+			<span class="sort-item" data-type="date">
+				По дате
+				<i class="fa btn-down icon-arowDown btn-tooltip" data-type="desc" title="От новых до старых"></i>
+				<i class="fa btn-up icon-arowUp btn-tooltip" data-type="asc" title="От старых до новых"></i>
+			</span>
+			
+			<!--  -->
+			<span class="sort-item" data-type="year">
+				По годам
+				<i class="fa btn-down btn-tooltip icon-arowDown" data-type="desc" title="От новых до старых"></i>
+				<i class="fa btn-up btn-tooltip icon-arowUp" data-type="asc" title="От старых до новых"></i>
+			</span>
+			<span class="sort-item" data-type="rating">
+				По популярности
+				<i class="fa btn-down icon-arowDown btn-tooltip" data-type="desc" title="От популярных до не популярных"></i>
+				<i class="fa btn-up icon-arowUp btn-tooltip" data-type="asc" title="От не популярных до популярных"></i>
+			</span>
+			<!--  -->
+			
+			<span class="sort-item" data-type="news_read">
+				По посещаемости
+				<i class="fa btn-down icon-arowDown btn-tooltip" data-type="desc" title="От большего количества просмотров до меньшего"></i>
+				<i class="fa btn-up icon-arowUp btn-tooltip" data-type="asc" title="От меньшего количества просмотров до большего"></i>
+			</span>
+			
+			
+			<span class="sort-item" data-type="comm_num">
+				По комментариям
+				<i class="fa btn-down icon-arowDown btn-tooltip" data-type="desc" title="От большего количества отзывов до меньшего"></i>
+				<i class="fa btn-up icon-arowUp btn-tooltip" data-type="asc" title="От меньшего количества отзывов до большего"></i>
+			</span>
+			
+			<span class="sort-item btn-tooltip" data-type="title">
+				По алфавиту
+				<i class="fa btn-down icon-arowDown btn-tooltip" data-type="desc" title="От Я - А"></i>
+				<i class="fa btn-up icon-arowUp btn-tooltip" data-type="asc" title="От А - Я"></i>
+			</span>
+		</div>
+		<input type="hidden" name="dlenewssortby" id="dlenewssortby" value="date">
+		<input type="hidden" name="dledirection" id="dledirection" value="DESC">
+		<input type="hidden" name="set_new_sort" id="set_new_sort" value="dle_sort_cat">
+		<input type="hidden" name="set_direction_sort" id="set_direction_sort" value="dle_direction_cat">
+	</form>
+</div>
+
+					</div>
+					
+					<!-- MENU -->
+					
+					
+					
+					
+					<div class="line-block">
+						<div id='dle-content'>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170663">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170663">
+				<span class="count green">+1</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170663">
+							<span class="hand-up icon-like" onclick="doRate(1, '170663', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">3</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170663', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">2</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/2438/orig/pohischennye-sokrovischa-evropy-2018_170663.jpg">
+				<img src="https://thumbs.filmix.zone/posters/2438/thumbs/w220/pohischennye-sokrovischa-evropy-2018_170663.jpg" itemprop="image" class="poster poster-tooltip" alt="Похищенные сокровища Европы, 2018" title="Похищенные сокровища Европы" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/istoricheskie/170663-pohischennye-sokrovischa-evropy-2018.html" title="Похищенные сокровища Европы, 2018 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Похищенные сокровища Европы"><a itemprop="url" href="https://filmix.zone/films/istoricheskie/170663-pohischennye-sokrovischa-evropy-2018.html" title="Похищенные сокровища Европы" class="btn-tooltip">Похищенные сокровища Европы</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Hitler contro Picasso&nbsp;e gli altri"> Hitler contro Picasso&nbsp;e gli altri </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">HDTVRip 1080 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-12T08:10:19+02:00">Сегодня, 08:10</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/istoricheskie/">Исторический</a>, <a itemprop="genre" href="https://filmix.zone/films/dokumentalenyj/">Документальные</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2018/">2018</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, двухголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Клаудио Поли</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Тони Сервилло,&nbsp;</span><span>Тимоти Гартон Эш,&nbsp;</span><span>Жан-Марк Дрейфус,&nbsp;</span><span>Эдгар Фейхтвангер,&nbsp;</span><span>Саймон Гудман</span></span></div>
+		<p itemprop="description">Через 80 лет после начала войны, разгоревшейся в результате противостояния нацизма и так называемого "дегенеративного искусства", картины знаменитых художников...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>2</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170663">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170663" onclick="do_watch_later('170663', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170663" onclick="common.doFavorites('170663', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170662">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170662">
+				<span class="count green">+3</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170662">
+							<span class="hand-up icon-like" onclick="doRate(1, '170662', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">8</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170662', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">5</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			<span class="video-in"><span>В файлах встроенная реклама!</span></span>
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/2854/orig/poceluy-2022_170662.jpg">
+				<img src="https://thumbs.filmix.zone/posters/2854/thumbs/w220/poceluy-2022_170662.jpg" itemprop="image" class="poster poster-tooltip" alt="Поцелуй, 2022" title="Поцелуй" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/drama/170662-poceluy-2022.html" title="Поцелуй, 2022 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Поцелуй"><a itemprop="url" href="https://filmix.zone/films/drama/170662-poceluy-2022.html" title="Поцелуй" class="btn-tooltip">Поцелуй</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Kysset"> Kysset </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 1080 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-12T00:50:04+02:00">Сегодня, 00:50</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/drama/">Драмы</a>, <a itemprop="genre" href="https://filmix.zone/films/melodrama/">Мелодрама</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2022/">2022</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Дублированный</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Билле Аугуст</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Эсбен Смед,&nbsp;</span><span>Клара Росагер,&nbsp;</span><span>Ларс Миккельсен,&nbsp;</span><span>Розалинд Мюнстер,&nbsp;</span><span>Давид Денсик</span></span></div>
+		<p itemprop="description">Молодой офицер Антон получает приглашение посетить известного венгерского барона, у которого есть дочь Эдит, прикованная к инвалидному креслу. Эдит влюбляется...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>0</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170662">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170662" onclick="do_watch_later('170662', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170662" onclick="common.doFavorites('170662', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="169288">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="169288">
+				<span class="count green">+71</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-169288">
+							<span class="hand-up icon-like" onclick="doRate(1, '169288', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">231</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '169288', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">160</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/1248/orig/geroy-nashih-snov-osa8-2023_169288.jpg">
+				<img src="https://thumbs.filmix.zone/posters/1248/thumbs/w220/geroy-nashih-snov-osa8-2023_169288.jpg" itemprop="image" class="poster poster-tooltip" alt="Герой наших снов, 2023" title="Герой наших снов" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/uzhasu/169288-geroy-nashih-snov-osa8-2023.html" title="Герой наших снов, 2023 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Герой наших снов"><a itemprop="url" href="https://filmix.zone/films/uzhasu/169288-geroy-nashih-snov-osa8-2023.html" title="Герой наших снов" class="btn-tooltip">Герой наших снов</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Dream Scenario"> Dream Scenario </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 2160 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T23:48:04+02:00">Вчера, 23:48</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/uzhasu/">Ужасы</a>, <a itemprop="genre" href="https://filmix.zone/films/komedia/">Комедия</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2023/">2023</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, многоголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Кристоффер Боргли</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Николас Кейдж,&nbsp;</span><span>Джулианна Николсон,&nbsp;</span><span>Майкл Сера,&nbsp;</span><span>Тим Медоуз,&nbsp;</span><span>Дилан Гелула</span></span></div>
+		<p itemprop="description">Преподаватель внезапно обретает необычный дар: он начинает являться во снах других людей. Эта необъяснимая способность кардинально меняет его жизнь. Вскоре он...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>47</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="169288">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-169288" onclick="do_watch_later('169288', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-169288" onclick="common.doFavorites('169288', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170600">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170600">
+				<span class="count green">+14</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170600">
+							<span class="hand-up icon-like" onclick="doRate(1, '170600', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">32</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170600', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">18</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			<span class="video-in"><span>В файлах встроенная реклама!</span></span>
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/2405/orig/amerikanskaya-hudozhestvennaya-literatura-2023_170600.jpg">
+				<img src="https://thumbs.filmix.zone/posters/2405/thumbs/w220/amerikanskaya-hudozhestvennaya-literatura-2023_170600.jpg" itemprop="image" class="poster poster-tooltip" alt="Американское чтиво, 2023" title="Американское чтиво" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/drama/170600-amerikanskaya-hudozhestvennaya-literatura-2023.html" title="Американское чтиво, 2023 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Американское чтиво"><a itemprop="url" href="https://filmix.zone/films/drama/170600-amerikanskaya-hudozhestvennaya-literatura-2023.html" title="Американское чтиво" class="btn-tooltip">Американское чтиво</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="American Fiction"> American Fiction </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 1080+ </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T23:32:11+02:00">Вчера, 23:32</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/drama/">Драмы</a>, <a itemprop="genre" href="https://filmix.zone/films/komedia/">Комедия</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2023/">2023</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, многоголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Корд Джефферсон</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Джеффри Райт,&nbsp;</span><span>Трэйси Эллис Росс,&nbsp;</span><span>Исса Рэй,&nbsp;</span><span>Стерлинг К. Браун,&nbsp;</span><span>Джон Ортис</span></span></div>
+		<p itemprop="description">Известного писателя и профессора литературы Телониуса "Монка" Эллисона критикуют за то, что его работы "недостаточно черные". В попытке привлечь внимание...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>11</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170600">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170600" onclick="do_watch_later('170600', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170600" onclick="common.doFavorites('170600', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="169687">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="169687">
+				<span class="count red">-7</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-169687">
+							<span class="hand-up icon-like" onclick="doRate(1, '169687', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">32</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '169687', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">39</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/0653/orig/astral.-ritual-malum_169687.jpg">
+				<img src="https://thumbs.filmix.zone/posters/0653/thumbs/w220/astral.-ritual-malum_169687.jpg" itemprop="image" class="poster poster-tooltip" alt="Астрал. Ритуал Малум, 2023" title="Астрал. Ритуал Малум" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/uzhasu/169687-astral.-ritual-malum.html" title="Астрал. Ритуал Малум, 2023 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Астрал. Ритуал Малум"><a itemprop="url" href="https://filmix.zone/films/uzhasu/169687-astral.-ritual-malum.html" title="Астрал. Ритуал Малум" class="btn-tooltip">Астрал. Ритуал Малум</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Malum"> Malum </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 2160 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T23:31:15+02:00">Вчера, 23:31</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/uzhasu/">Ужасы</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2023/">2023</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, многоголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Энтони ДиБлази</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Джессика Сула,&nbsp;</span><span>Монро Клайн,&nbsp;</span><span>Кэндис Коук,&nbsp;</span><span>Кевин Уэйн,&nbsp;</span><span>Morgan Lennon</span></span></div>
+		<p itemprop="description">"Астрал. Ритуал Малум" - это увлекательная смесь криминальной драмы и мистики. Главная героиня, Джессика Лорен, сталкивается с загадочной смертью своего отца и...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>7</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="169687">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-169687" onclick="do_watch_later('169687', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-169687" onclick="common.doFavorites('169687', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170634">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170634">
+				<span class="count green">+1</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170634">
+							<span class="hand-up icon-like" onclick="doRate(1, '170634', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">19</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170634', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">18</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			<span class="video-in"><span>В файлах встроенная реклама!</span></span>
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/5608/orig/iz-glubiny-2024_170634.jpg">
+				<img src="https://thumbs.filmix.zone/posters/5608/thumbs/w220/iz-glubiny-2024_170634.jpg" itemprop="image" class="poster poster-tooltip" alt="Из глубины, 2024" title="Из глубины" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/drama/170634-iz-glubiny-2024.html" title="Из глубины, 2024 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Из глубины"><a itemprop="url" href="https://filmix.zone/films/drama/170634-iz-glubiny-2024.html" title="Из глубины" class="btn-tooltip">Из глубины</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="No Way Up"> No Way Up </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 1080 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T23:15:16+02:00">Вчера, 23:15</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/drama/">Драмы</a>, <a itemprop="genre" href="https://filmix.zone/films/triller/">Триллеры</a>, <a itemprop="genre" href="https://filmix.zone/films/prikluchenija/">Приключения</a>, <a itemprop="genre" href="https://filmix.zone/films/boevik/">Боевики</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2024/">2024</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Дублированный</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Клаудио Фах</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Софи Макинтош,&nbsp;</span><span>Филлис Логан,&nbsp;</span><span>Колм Мини,&nbsp;</span><span>Уильям Аттенборо,&nbsp;</span><span>Джеймс Кэрролл Джордан</span></span></div>
+		<p itemprop="description">Самолет терпит крушение в Тихом океане, оставляя выживших на краю пропасти. Запасы воздуха в воздушном кармане начинают быстро истощаться, заставляя пассажиров...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>3</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170634">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170634" onclick="do_watch_later('170634', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170634" onclick="common.doFavorites('170634', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="163356">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="163356">
+				<span class="count green">+39</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-163356">
+							<span class="hand-up icon-like" onclick="doRate(1, '163356', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">96</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '163356', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">57</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			<span class="video-in"><span>В файлах встроенная реклама!</span></span>
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/5634/orig/tri-mushketera-miledi-2023_163356.jpg">
+				<img src="https://thumbs.filmix.zone/posters/5634/thumbs/w220/tri-mushketera-miledi-2023_163356.jpg" itemprop="image" class="poster poster-tooltip" alt="Три мушкетёра: Миледи, 2023" title="Три мушкетёра: Миледи" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/prikluchenija/163356-tri-mushketera-miledi-2023.html" title="Три мушкетёра: Миледи, 2023 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Три мушкетёра: Миледи"><a itemprop="url" href="https://filmix.zone/films/prikluchenija/163356-tri-mushketera-miledi-2023.html" title="Три мушкетёра: Миледи" class="btn-tooltip">Три мушкетёра: Миледи</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Les trois mousquetaires: Milady"> Les trois mousquetaires: Milady </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">TC 1080 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T20:04:31+02:00">Вчера, 20:04</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/prikluchenija/">Приключения</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2023/">2023</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, многоголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Мартин Бурбулон</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Ева Грин,&nbsp;</span><span>Венсан Кассель,&nbsp;</span><span>Вики Крипс,&nbsp;</span><span>Джейкоб Форчун-Ллойд,&nbsp;</span><span>Лина Кудри</span></span></div>
+		<p itemprop="description">Пространство фильма «Три мушкетёра: Миледи» охватывает местность от Лувра и вплоть до Букингемского дворца, от разрушенных трущоб бедняков столицы Франции и до...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>10</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="163356">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-163356" onclick="do_watch_later('163356', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-163356" onclick="common.doFavorites('163356', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170650">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170650">
+				<span class="count green">+6</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170650">
+							<span class="hand-up icon-like" onclick="doRate(1, '170650', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">6</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170650', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">0</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/0141/orig/nevedomaya-ispaniya-2020_170650.jpg">
+				<img src="https://thumbs.filmix.zone/posters/0141/thumbs/w220/nevedomaya-ispaniya-2020_170650.jpg" itemprop="image" class="poster poster-tooltip" alt="Неведомая Испания, 2020" title="Неведомая Испания" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/dokumentalenyj/170650-nevedomaya-ispaniya-2020.html" title="Неведомая Испания, 2020 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Неведомая Испания"><a itemprop="url" href="https://filmix.zone/films/dokumentalenyj/170650-nevedomaya-ispaniya-2020.html" title="Неведомая Испания" class="btn-tooltip">Неведомая Испания</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Hidden Ispain"> Hidden Ispain </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">HDTVRip 720 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T18:52:13+02:00">Вчера, 18:52</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/dokumentalenyj/">Документальные</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2020/">2020</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, одноголосый</span></div>
+		
+		
+		<p itemprop="description">Испания, омываемая водами Средиземного моря на востоке и Атлантического океана на западе, предлагает разнообразие климатических условий, способствующих...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>0</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170650">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170650" onclick="do_watch_later('170650', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170650" onclick="common.doFavorites('170650', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170656">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170656">
+				<span class="count red">-2</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170656">
+							<span class="hand-up icon-like" onclick="doRate(1, '170656', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">3</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170656', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">5</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/3418/orig/kto-podozrevaemyy-2023_170656.jpg">
+				<img src="https://thumbs.filmix.zone/posters/3418/thumbs/w220/kto-podozrevaemyy-2023_170656.jpg" itemprop="image" class="poster poster-tooltip" alt="Кто подозреваемый?, 2023" title="Кто подозреваемый?" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/drama/170656-kto-podozrevaemyy-2023.html" title="Кто подозреваемый?, 2023 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Кто подозреваемый?"><a itemprop="url" href="https://filmix.zone/films/drama/170656-kto-podozrevaemyy-2023.html" title="Кто подозреваемый?" class="btn-tooltip">Кто подозреваемый?</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Zheng jiu xian yi ren"> Zheng jiu xian yi ren </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEBRip 1080 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T17:34:32+02:00">Вчера, 17:34</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/drama/">Драмы</a>, <a itemprop="genre" href="https://filmix.zone/films/kriminaly/">Криминал</a>, <a itemprop="genre" href="https://filmix.zone/films/detektivy/">Детектив</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2023/">2023</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Любительский, многоголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Чжан Мо</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Чжан Сяофэй,&nbsp;</span><span>Ли Хунчи,&nbsp;</span><span>Кара Хуэй,&nbsp;</span><span>Хун Цзюньцзя,&nbsp;</span><span>Буги Ван</span></span></div>
+		<p itemprop="description">Дочь успешной адвокатессы становится жертвой похищения, и её мать вынуждена защищать в суде преступника, обвиняемого в убийстве.</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>0</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170656">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170656" onclick="do_watch_later('170656', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170656" onclick="common.doFavorites('170656', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="169709">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="169709">
+				<span class="count green">+658</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-169709">
+							<span class="hand-up icon-like" onclick="doRate(1, '169709', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">822</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '169709', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">164</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/2649/orig/charli-pulya-2023_169709.jpg">
+				<img src="https://thumbs.filmix.zone/posters/2649/thumbs/w220/charli-pulya-2023_169709.jpg" itemprop="image" class="poster poster-tooltip" alt="Чарли Пуля, 2023" title="Чарли Пуля" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/drama/169709-charli-pulya-2023.html" title="Чарли Пуля, 2023 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Чарли Пуля"><a itemprop="url" href="https://filmix.zone/films/drama/169709-charli-pulya-2023.html" title="Чарли Пуля" class="btn-tooltip">Чарли Пуля</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Fast Charlie"> Fast Charlie </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 2160 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T17:14:32+02:00">Вчера, 17:14</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/drama/">Драмы</a>, <a itemprop="genre" href="https://filmix.zone/films/triller/">Триллеры</a>, <a itemprop="genre" href="https://filmix.zone/films/kriminaly/">Криминал</a>, <a itemprop="genre" href="https://filmix.zone/films/boevik/">Боевики</a>, <a itemprop="genre" href="https://filmix.zone/films/detektivy/">Детектив</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2023/">2023</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Дублированный</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Филлип Нойс</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Пирс Броснан,&nbsp;</span><span>Морена Баккарин,&nbsp;</span><span>Джеймс Каан,&nbsp;</span><span>Гбенга Акиннагбе,&nbsp;</span><span>Кристофер Мэттью Кук</span></span></div>
+		<p itemprop="description">Чарли Свифт, известный как "Пуля", является безжалостным убийцей и экспертом в решении сложных задач. Долгие годы он преданно служит своему боссу, мафиози...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>63</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="169709">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-169709" onclick="do_watch_later('169709', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-169709" onclick="common.doFavorites('169709', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170653">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170653">
+				<span class="count red">-1</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170653">
+							<span class="hand-up icon-like" onclick="doRate(1, '170653', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">5</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170653', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">6</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			<span class="video-in"><span>В файлах встроенная реклама!</span></span>
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/5305/orig/mrachnaya-oderzhimost-2023_170653.jpg">
+				<img src="https://thumbs.filmix.zone/posters/5305/thumbs/w220/mrachnaya-oderzhimost-2023_170653.jpg" itemprop="image" class="poster poster-tooltip" alt="Мрачная одержимость, 2023" title="Мрачная одержимость" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/triller/170653-mrachnaya-oderzhimost-2023.html" title="Мрачная одержимость, 2023 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Мрачная одержимость"><a itemprop="url" href="https://filmix.zone/films/triller/170653-mrachnaya-oderzhimost-2023.html" title="Мрачная одержимость" class="btn-tooltip">Мрачная одержимость</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Dark Obsession"> Dark Obsession </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 1080 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T16:48:53+02:00">Вчера, 16:48</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/triller/">Триллеры</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2023/">2023</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, многоголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Джордж Генри Хортон</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Блэйн Моррис,&nbsp;</span><span>Мена Сувари,&nbsp;</span><span>Леонард Амойя,&nbsp;</span><span>Люси Вернер,&nbsp;</span><span>Даниэль Харрис</span></span></div>
+		<p itemprop="description">Женщина, чья судьба обречена на одиночество из-за таинственного исчезновения её супруга, сражается с собственными внутренними страхами и сомнениями.</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>0</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170653">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170653" onclick="do_watch_later('170653', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170653" onclick="common.doFavorites('170653', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170649">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170649">
+				<span class="count green">+8</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170649">
+							<span class="hand-up icon-like" onclick="doRate(1, '170649', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">8</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170649', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">0</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/0007/orig/sanitary-prirody-2021_170649.jpg">
+				<img src="https://thumbs.filmix.zone/posters/0007/thumbs/w220/sanitary-prirody-2021_170649.jpg" itemprop="image" class="poster poster-tooltip" alt="Санитары природы, 2021" title="Санитары природы" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/dokumentalenyj/170649-sanitary-prirody-2021.html" title="Санитары природы, 2021 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Санитары природы"><a itemprop="url" href="https://filmix.zone/films/dokumentalenyj/170649-sanitary-prirody-2021.html" title="Санитары природы" class="btn-tooltip">Санитары природы</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Clean up Crew"> Clean up Crew </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">HDTVRip 720 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T15:35:35+02:00">Вчера, 15:35</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/dokumentalenyj/">Документальные</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2021/">2021</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, одноголосый</span></div>
+		
+		
+		<p itemprop="description">Если погибшие растения и животные останутся просто лежать на земле без разложения, это приведет к накоплению органического материала и гниющих останков. В...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>0</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170649">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170649" onclick="do_watch_later('170649', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170649" onclick="common.doFavorites('170649', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170648">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170648">
+				<span class="count green">+4</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170648">
+							<span class="hand-up icon-like" onclick="doRate(1, '170648', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">9</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170648', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">5</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/5600/orig/kiberbunker-darknetnbspv-germanii-2023_170648.jpg">
+				<img src="https://thumbs.filmix.zone/posters/5600/thumbs/w220/kiberbunker-darknetnbspv-germanii-2023_170648.jpg" itemprop="image" class="poster poster-tooltip" alt="Кибербункер: Даркнет в Германии, 2023" title="Кибербункер: Даркнет в Германии" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/kriminaly/170648-kiberbunker-darknetnbspv-germanii-2023.html" title="Кибербункер: Даркнет в Германии, 2023 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Кибербункер: Даркнет в Германии"><a itemprop="url" href="https://filmix.zone/films/kriminaly/170648-kiberbunker-darknetnbspv-germanii-2023.html" title="Кибербункер: Даркнет в Германии" class="btn-tooltip">Кибербункер: Даркнет в Германии</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Cyberbunker: The Criminal Underworld"> Cyberbunker: The Criminal Underworld </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 1080+ </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T14:22:46+02:00">Вчера, 14:22</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/kriminaly/">Криминал</a>, <a itemprop="genre" href="https://filmix.zone/films/dokumentalenyj/">Документальные</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2023/">2023</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Любительский, двухголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Макс Райнер</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Свен Олаф Кампхуис,&nbsp;</span><span>Джордж Митчелл,&nbsp;</span><span>Герман-Йохан Ксеннт</span></span></div>
+		<p itemprop="description">В идиллическом туристическом городке Германии группа хакеров под руководством эксцентричного лидера Ксеннта замышляет захват огромного бункера НАТО,...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>1</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170648">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170648" onclick="do_watch_later('170648', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170648" onclick="common.doFavorites('170648', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170557">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170557">
+				<span class="count red">-2</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170557">
+							<span class="hand-up icon-like" onclick="doRate(1, '170557', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">3</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170557', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">5</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			<span class="video-in"><span>В файлах встроенная реклама!</span></span>
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/0359/orig/nichego-ne-sluchilos-2022_170557.jpg">
+				<img src="https://thumbs.filmix.zone/posters/0359/thumbs/w220/nichego-ne-sluchilos-2022_170557.jpg" itemprop="image" class="poster poster-tooltip" alt="Ничего не случилось, 2022" title="Ничего не случилось" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/drama/170557-nichego-ne-sluchilos-2022.html" title="Ничего не случилось, 2022 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Ничего не случилось"><a itemprop="url" href="https://filmix.zone/films/drama/170557-nichego-ne-sluchilos-2022.html" title="Ничего не случилось" class="btn-tooltip">Ничего не случилось</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Nunca Nada Aconteceu"> Nunca Nada Aconteceu </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 1080 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T11:09:46+02:00">Вчера, 11:09</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/drama/">Драмы</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2022/">2022</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, многоголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Гонсалу Галван Телеш</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Филипе Дуарте,&nbsp;</span><span>Ана Морейра,&nbsp;</span><span>Руй Мориссон,&nbsp;</span><span>Бернардо Лобо Фариа,&nbsp;</span><span>Алба Баптишта</span></span></div>
+		<p itemprop="description">Педро, Мария и Пауло - три неразлучных подростка, сталкивающихся с драмами и разочарованиями, присущими их возрасту. В доме Педро его ожидает безработный отец...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>0</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170557">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170557" onclick="do_watch_later('170557', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170557" onclick="common.doFavorites('170557', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="170633">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="170633">
+				<span class="count red">-6</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-170633">
+							<span class="hand-up icon-like" onclick="doRate(1, '170633', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">2</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '170633', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">8</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			<span class="video-in"><span>В файлах встроенная реклама!</span></span>
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/4244/orig/smert-v-kruzhevah-2023_170633.jpg">
+				<img src="https://thumbs.filmix.zone/posters/4244/thumbs/w220/smert-v-kruzhevah-2023_170633.jpg" itemprop="image" class="poster poster-tooltip" alt="Смерть в кружевах, 2023" title="Смерть в кружевах" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/triller/170633-smert-v-kruzhevah-2023.html" title="Смерть в кружевах, 2023 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Смерть в кружевах"><a itemprop="url" href="https://filmix.zone/films/triller/170633-smert-v-kruzhevah-2023.html" title="Смерть в кружевах" class="btn-tooltip">Смерть в кружевах</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="Laced"> Laced </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">WEB-DLRip 1080 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T10:10:44+02:00">Вчера, 10:10</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/triller/">Триллеры</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y2023/">2023</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, многоголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Кайл Бутенхофф</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Кайл Бутенхофф,&nbsp;</span><span>Мел Фэйр,&nbsp;</span><span>Гермиона Линч,&nbsp;</span><span>Дэна Мэкин,&nbsp;</span><span>Зак Тинкер</span></span></div>
+		<p itemprop="description">Во время сильной снежной бури отчаявшаяся женщина принимает решение окончательно разделаться со своим мужем-абьюзером. В обстановке полного изоляции, вызванной...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>0</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="170633">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-170633" onclick="do_watch_later('170633', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-170633" onclick="common.doFavorites('170633', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article>
+<article class="shortstory line" itemscope itemtype="http://schema.org/Movie" data-pl-id="-1" data-id="18359">
+	<div class="short">
+		<span class="like-count-wrap ">
+						<span class="like" data-id="18359">
+				<span class="count green">+14</span>
+				<span class="counter">
+					<span class="rating">
+						<span id="ratig-layer-18359">
+							<span class="hand-up icon-like" onclick="doRate(1, '18359', 'cat'); return false;">
+								<i title="Отлично" class="fa positive btn-tooltip "></i>
+								<span class="rateinf ratePos">32</span>
+							</span>
+							<span class="hand-down icon-dislike"  onclick="doRate(-1, '18359', 'cat'); return false;">
+								<i title="Плохо" class="fa negative btn-tooltip "></i>
+								<span class="rateinf rateNeg">18</span>
+							</span>
+						</span>
+					</span>
+				</span>
+			</span>
+			
+			<a class="fancybox" href="https://thumbs.filmix.zone/posters/0843/orig/viz-volshebnik-0fil-1978_18359.jpg">
+				<img src="https://thumbs.filmix.zone/posters/0843/thumbs/w220/viz-volshebnik-0fil-1978_18359.jpg" itemprop="image" class="poster poster-tooltip" alt="Виз, 1978" title="Виз" loading="lazy" width="220" height="313">
+				
+			</a>
+		</span>
+		<a class="watch icon-play" itemprop="url" href="https://filmix.zone/films/muzkl/18359-viz-volshebnik-0fil-1978.html" title="Виз, 1978 смотреть онлайн">Смотреть онлайн</a>
+	</div>
+	<div class="full">
+		
+		<div class="title-one-line">
+			<div class="name-block">
+				<h2 class="name" itemprop="name" content="Виз"><a itemprop="url" href="https://filmix.zone/films/muzkl/18359-viz-volshebnik-0fil-1978.html" title="Виз" class="btn-tooltip">Виз</a></h2>
+				<div class="origin-name" itemprop="alternativeHeadline" content="The Wiz"> The Wiz </div>
+			</div>
+			<div class="top-date">
+				<div class="quality">BDRip 1080 </div>
+				<div class="block-date">
+					
+					<time class="date" itemprop="dateCreated" datetime="2024-02-11T09:52:54+02:00">Вчера, 09:52</time>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="item category"><span class="lable">Жанр:</span><span class="item-content"><a itemprop="genre" href="https://filmix.zone/films/muzkl/">Мюзикл</a>, <a itemprop="genre" href="https://filmix.zone/films/semejnye/">Семейный</a>, <a itemprop="genre" href="https://filmix.zone/films/fjuntezia/">Фэнтези</a>, <a itemprop="genre" href="https://filmix.zone/films/prikluchenija/">Приключения</a></span></div>
+		<div class="item year"><span class="lable">Год:</span><span class="item-content"><a itemprop="copyrightYear" href="https://filmix.zone/films/y1978/">1978</a></span>
+			
+			
+			</div>
+		<div class="item translate"><span class="lable">Перевод:</span><span class="item-content">Профессиональный, двухголосый</span></div>
+		<div class="item actors"><span class="lable">Режиссер:</span><span class="item-content" itemprop="director">Сидни Люмет</span></div>
+		<div class="item actors"><span class="lable">В ролях:</span><span class="item-content"><span>Дайана Росс,&nbsp;</span><span>Майкл Джексон,&nbsp;</span><span>Нипси Расселл,&nbsp;</span><span>Тед Росс,&nbsp;</span><span>Мэйбл Кинг</span></span></div>
+		<p itemprop="description">Скромная воспитательница по имени Дороти работает в детском саду в Гарлеме. Она разыскивает свою собачку по кличке Тото, который бесследно потерялась. Дороти...</p>
+		<div class="close-wrap icon-close"></div>
+	</div>
+	<div class="panel-wrap">
+		<div class="panel">
+			<div class="panel_num">
+				<div class="comm_num btn-tooltip icon-reviewsNeutral" title="Количество комментариев">
+					<span>1</span>
+				</div>
+			</div>
+			
+			<div class="add-to-subs  btn-tooltip" title="Подписаться на уведомления">
+				<div class="add-to-subs-toogle">
+					<span class="add-to-subs-title">Уведомления</span>
+				</div>
+				<ul class="list-container" data-id="18359">
+    
+    <li class="sub-item" data-id="voiceovers">Выход новых озвучек</li>
+    
+    <li class="sub-item" data-id="quality">Выход лучшего качества</li>
+    
+</ul>
+			</div>
+			<div class="add-watch-later btn-tooltip icon-future " id="future-id-18359" onclick="do_watch_later('18359', '', 'short'); return false"  title="Посмотреть позже"></div>
+			<div class="add-favorite btn-tooltip icon-favorite " id="fav-id-18359" onclick="common.doFavorites('18359', '', 0, 'short'); return false;" title="Добавить в закладки"></div>
+		</div>
+	</div>
+</article><div class="navigation">
+	
+	<span data-number="1">1</span> <a data-number="2" href="https://filmix.zone/films/pages/2/">2</a> <a data-number="3" href="https://filmix.zone/films/pages/3/">3</a> <a data-number="4" href="https://filmix.zone/films/pages/4/">4</a> <span class="nav_ext">...</span> <a data-number="4649" href="https://filmix.zone/films/pages/4649/">4649</a>
+	<a data-number="2" href="https://filmix.zone/films/pages/2/" class="next icon-arowRight btn-tooltip" title="На страницу вперед alt + &#8594;"><i class="fa"></i></a>
+</div><script> var filter_data={"s":{"999":"\u0424\u0438\u043b\u044c\u043c\u044b"}};</script></div>
+					</div>
+				</section>
+				
+				<aside id="65ca126eb6d38">
+					<h2 class="visually-hidden">Боковая панель / фильтры</h2>
+<div class="aside-wrap">
+	
+	
+	
+		<div class="filters filt">
+	
+	
+		<form id="filtersForm">
+			<input type="hidden" name="mainCat" value="999" />
+			<div class="filter-header">
+				<div class="filter-title"><div class="fa icon-filters"></div><div>Фильтры</div></div>
+			</div>
+			<div class="filter-category" id="category-container" data-id="items-more-category" data-scope="s">
+				<div class="fa ico-dots icon-dots items-more-category"></div>
+				<div class="title">категория</div>
+				<!-- items -->
+			</div>
+			<div class="filter-category"  id="country-container" data-id="items-more-country" data-type="countries" data-scope="c">
+				<i class="fa ico-dots icon-dots items-more-country"></i>
+				<div class="title">страна</div>
+				<!-- items -->
+			</div>
+			<div class="filter-category" id="ganres-container" data-id="items-more-ganres" data-type="categories" data-scope="g">
+				<i class="fa ico-dots icon-dots items-more-ganres"></i>
+				<div class="title">Жанр</div>
+				<!-- items -->
+			</div>
+			<div class="filter-category" id="year-container" data-id="items-more-year" data-type="years" data-scope="y">
+				<i class="fa ico-dots icon-dots items-more-year"></i>
+				<div class="title">год выпуска</div>
+				<!-- items -->
+			</div>
+			<div class="filter-category"  id="rip-container" data-id="items-more-rip" data-type="rip" data-scope="q">
+				<i class="fa ico-dots icon-dots items-more-rip"></i>
+				<div class="title">Качество</div>
+				<!-- items -->
+			</div>
+			<div class="filter-category"  id="translate-container" data-id="items-more-translate" data-type="translation" data-scope="t">
+				<i class="fa ico-dots icon-dots items-more-translate"></i>
+				<div class="title">перевод / озвучка</div>
+				<!-- items -->
+			</div>
+			<div class="filter-category">
+				<div class="title">Выбор языка</div>
+				<div class="profile-filter icon-arowDown" id="choose_lang">
+					<div class="current profile-filter-active">Русский</div>
+					<div class="filter-profile-items">
+						<div class="filter-profile-item active" data-scope="l" data-value="ru">Русский</div>
+						<div class="filter-profile-item" data-scope="l" data-value="ua">Украинский</div>
+						<div class="filter-profile-item" data-scope="l" data-value="en">Английский</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="filter-footer">
+			<div class="filter-category">
+				<div>
+					<input id="noPremiere" type="checkbox" value="" data-scope="d" name="no-premiere"><label for="noPremiere" class="icon-chekR">Не отображать премьер</label>
+				</div>
+			</div>
+			<div class="filter-category filter-category-hdr">
+				<div>
+					<input id="noHDR" type="checkbox" value="" data-scope="h" name="no-hdr">
+					<label for="noHDR" class="icon-chekR">Не отображать HDR</label>
+				</div>
+			</div>
+			<div class="filter-category filter-category-sdr">
+				<div>
+					<input id="noSDR" type="checkbox" value="" data-scope="h" name="no-sdr">
+					<label for="noSDR" class="icon-chekR">Не отображать SDR</label>
+				</div>
+			</div>
+			<button class="resetFilters">сбросить фильтр</button>
+		</div>
+	
+	
+	
+	
+	<div class="items-container filter-section" id="items-more-country" style="">
+		<div class="container-items-header">Выберите СТРАНУ<i class="fa ico-remove icon-close"></i></div>
+		<div class="filter-article"></div>
+		<div class="container-items-footer"></div>
+	</div>
+	<div class="items-container filter-section" id="items-more-ganres" style="">
+		<div class="container-items-header">Выберите Жанр<i class="fa ico-remove icon-close"></i></div>
+		<div class="filter-article"></div>
+		<div class="container-items-footer"></div>
+	</div>
+	
+	<div class="items-container filter-section" id="items-more-career" style="">
+		<div class="container-items-header">Выберите тип КАРЬЕРЫ<i class="fa ico-remove icon-close"></i></div>
+		<div class="filter-article"></div>
+		<div class="container-items-footer"></div>
+	</div>
+	<div class="items-container filter-section" id="items-more-year" style="">
+		
+		<div class="container-items-header">Выберите год выпуска<i class="fa ico-remove icon-close"></i></div>
+		
+		
+		<div class="filter-article">
+			<div class="slider">
+				<div class="enter">
+					<label for="ot" class="visually-hidden">От</label>
+					<input name="years_ot" type="text" id="ot" style="width: 32px"> -
+					<label for="do" class="visually-hidden">До</label>
+					<input name="years_do" type="text" id="do" style="width: 32px">
+				</div>
+				<div id="slider-years" class="slider-years"></div>
+			</div>
+		</div>
+		<div class="container-items-footer"></div>
+	</div>
+	<div class="items-container filter-section" id="items-more-rip" style="">
+		<div class="container-items-header">Выберите Качество<i class="fa ico-remove icon-close"></i></div>
+		<div class="filter-article"></div>
+		<div class="container-items-footer"></div>
+	</div>
+	<div class="items-container filter-section" id="items-more-category" style="">
+		<div class="container-items-header">Выберите Категории<i class="fa ico-remove icon-close"></i></div>
+		<div class="filter-article">
+			<span class="item icon-close" data-scope="s" data-value="7">Сериалы</span>
+			<span class="item icon-close" data-scope="s" data-value="14">Мультфильмы</span>
+			<span class="item icon-close" data-scope="s" data-value="999">Фильмы</span>
+			<span class="item icon-close" data-scope="s" data-value="93">Мультсериалы</span>
+		</div>
+		<div class="container-items-footer"></div>
+	</div>
+	<div class="items-container filter-section" id="items-more-translate" style="">
+		<div class="container-items-header">Выберите перевод / озвучку<i class="fa ico-remove icon-close"></i></div>
+		<div class="filter-article"></div>
+		<div class="container-items-footer"></div>
+	</div>
+	
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<noindex>
+		
+		<div class="remove-sda-wrap">
+			<a href="https://filmix.zone/noads.html" rel="nofollow" class="remove-sda">
+				<span>Отключить рекламу</span>
+			</a>
+		</div>
+		
+		<div class="info-a">
+   <center>
+
+<div id='zone_1528429093' ></div>
+<script>
+    (function(w,d,o,g,r,a,m){
+        var cid='zone_1528429093';
+        w[r]=w[r]||function(){(w[r+'l']=w[r+'l']||[]).push(arguments)};
+        function e(b,w,r){if((w[r+'h']=b.pop())&&!w.ABN){
+            var a=d.createElement(o),p=d.getElementsByTagName(o)[0];a.async=1;
+            a.src='https://cdn.'+w[r+'h']+'/libs/e.js';a.onerror=function(){e(g,w,r)};
+            p.parentNode.insertBefore(a,p)}}e(g,w,r);
+        w[r](cid,{id:1528429093,domain:w[r+'h']});
+    })(window,document,'script',['trafficbass.com'],'ABNS');
+</script>
+
+   </center>
+  </div>
+	</noindex>
+	<noindex>
+		
+		
+	</noindex>
+	
+	
+</div>
+				</aside>
+				
+			</div>
+			<div class="page-buffer"></div>
+			<div class="page-footer clearfix">
+				<footer id="footer">
+					<div class="container">
+						<div class="copy">&copy;&nbsp;&nbsp;2024 Filmix
+						</div>
+						<span data-href="?force_mobile" class="full-site">Мобильная</span>
+						
+						<nav class="footer-menu not-pro">
+							<ul>
+								<li><a href="https://filmix.zone/speedtest" rel="nofollow">SpeedTest</a></li>
+								<li><a href="https://filmix.zone/advertise.html" rel="nofollow">Реклама</a></li>
+								<li><a href="https://filmix.zone/agreement.html" rel="nofollow">Соглашение</a></li>
+								<li><a href="https://filmix.zone/for-owners.html" rel="nofollow">Abuse</a></li>
+								<li><a href="https://filmix.zone/faq.html" rel="nofollow">Помощь</a></li>
+								<li><a href="https://filmix.zone/contacts.html" rel="nofollow">Контакты</a></li>
+							</ul>
+						</nav>
+					</div>
+				</footer>
+			</div>
+			
+			<div id="top" class="top-btn">
+				<i class="top-btn-pic icon-playSlim"></i>
+				<span class="top-btn-text">Наверх</span>
+			</div>
+			
+		</div>
+		<script type="text/html" id="comment-tmp">
+			<div class="comment-box <%=(parent_id != 0) ? 'level-1' : 'level-0' %> my" <%=(parent_id != 0) ? 'data-parent="parent_id"' : ""%> data-id="<%=id%>">
+				<div class="avatar-block my">
+					
+					<div class="pro-comment">
+						<div class="white-border">
+							<img src="https://filmix.zone/films/&lt;%=avatar%&gt;" class="avatar" loading="lazy">
+						</div>
+					</div>
+				</div>
+				<div class="comment" data-id="<%=id%>">
+					<header class="comment-header">
+						<div class="comment-name">
+							<a href="https://filmix.zone/films/&lt;%=url_user%&gt;">
+								<%=user%>
+							</a>
+						</div>
+						<div class="comment-date"><%=time%></div>
+						<div class="comment-rating">
+							<span class="like"><span>+0</span><i title="Отлично" class="fa btn-tooltip icon-like"></i></span>
+							<span class="dislike"><span>-0</span><i title="Плохо" class="fa btn-tooltip icon-dislike"></i></span>
+						</div>
+						<div class="comment-delete" data-id="<%=id%>"><i class="fa icon-delete"></i>Удалить</div>
+						<div class="comment-edit" data-id="<%=id%>"><i class="fa icon-edit"></i>Редактировать</div>
+					</header>
+					<div class="comment-text <%=(user_data.is_user_pro_plus) ? 'pro-border' : '' %>">
+						<% if (($('#main').hasClass('lastcomments') || $('#main').hasClass('social_profile') || $('#main').hasClass('user_info')) && parent_id == 0){%>
+							<h4 class="title"><%=post_title%></h4>
+						<% } %>
+						<div id="comm-id-<%=id%>">
+							<%=comment%>
+						</div>
+						<% if (!$('#main').hasClass('lastcomments') && !$('#main').hasClass('social_profile')) {%>
+							<div class="replay-block">
+								<span class="replay icon-reviewsNeutral" data-post-id="<%=post_id%>" data-id="<%=id%>">Ответить</span>
+							</div>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</script>
+		
+		<script type="text/html" id="auth_modal">
+			<div class="modal-block-authorization" id="" data-controller="" data-action="" title="">
+				<header>
+					<div class="dialog-title">
+						<div class="title-dialog">Авторизация</div>
+						<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close m-close icon-close" title="Close">
+							<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+							<span class="ui-button-text">Close</span>
+						</button>
+					</div>
+					<p>Введите свои логин пароль
+					<br> для входа в личный кабинет</p>
+				</header>
+				<article>
+					<form method="post" id="loginForm">
+						<div class="div">
+							<input type="text" class="form-control" name="login_name" id="login_name" placeholder="Логин" data-original-title="" title="" autocomplete="off" autocorrect="off" autocapitalize="off">
+						</div>
+						<div class="div">
+							<input type="password" name="login_password" id="login_password" class="password" placeholder="Пароль" data-original-title="" title="" autocomplete="off" autocorrect="off" autocapitalize="off">
+							<span id="restor" data-action="restorpass" class="open_modal_spec">Забыли?</span>
+						</div>
+						<div class="info-text">
+							<button autofocus type="submit" class="enter">войти</button>
+							<span class="update_auth"><img src="../templates/Filmix/media/img/update.gif" alt="update" loading="lazy"></span>
+							<input type="submit" class="hidden" value="go" />
+							<span>
+								<input type="checkbox" class="login-not-save" name="login_not_save" id="login_not_save" value="1" checked/>
+								<label for="login_not_save" class="icon-chekR">Запомнить меня</label>
+								<input name="login" type="hidden" id="login" value="submit"/>
+							</span>
+							<span class="authspan">Нет аккаунта? <span id="registred" class="open_modal_spec" data-action="register">зарегистрироваться</span></span>
+						</div>
+					</form>
+				</article>
+				<footer class="AuthFooter AuthFooter_center">
+					<p>Или войдите с помощью соцсети</p>
+					<div class="social-reg">
+						<span class="fb icon-fb-m"><a href="https://filmix.zone/films/&lt;%=fb%&gt;"></a></span>
+						<span class="gp icon-gp-m"><a href="https://filmix.zone/films/&lt;%=gg%&gt;"></a></span>
+						<span class="vk icon-vk-m"><a href="https://filmix.zone/films/&lt;%=vk%&gt;"></a></span>
+						<span class="od icon-od-m"><a href="https://filmix.zone/films/&lt;%=od%&gt;"></a></span>
+						<span class="ya icon-ya-m"><a href="https://filmix.zone/films/&lt;%=ya%&gt;"></a></span>
+						<!--<span class="mr icon-mr-m"><a href="<%=mr%>"></a></span>-->
+					</div>
+				</footer>
+			</div>
+		</script>
+		
+		<div class="block-off-light"></div>
+		<div class="android-telegram-main">
+			<a class="android-link poster-tooltip" title="Скачать Android приложение" href="https://filmix.zone/consoles">
+				<i class="android-icon"></i>
+			</a>
+			
+			
+		</div>
+
+		<link href="../templates/Filmix/media/css/fonts.css@v=b7ede7f7dbcfb065edf61b9147e6e095.css" rel="stylesheet" media="all" />
+		<link href="../templates/Filmix/media/fonts/icomoon/style.css@v=b7ede7f7dbcfb065edf61b9147e6e095.css" rel="stylesheet" media="all" />
+
+		<link href="../templates/Filmix/media/css/cropper.min.css@v=b7ede7f7dbcfb065edf61b9147e6e095.css" rel='stylesheet' />
+		<link href="../templates/Filmix/media/css/jquery.Jcrop.min.css@v=b7ede7f7dbcfb065edf61b9147e6e095.css" rel='stylesheet' />
+		<link href="../templates/Filmix/media/css/jquery.fancybox.css@v=b7ede7f7dbcfb065edf61b9147e6e095.css" rel="stylesheet" media="screen" />
+		<link href="../templates/Filmix/media/css/vendor.css" rel="stylesheet" media="all" />
+
+		<script src="../vendor/jquery/jquery-3.6.0.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		<script src="../vendor/jquery/jquery-migrate.min.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		<script src="../vendor/jquery/jqueryui-1.11.4.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		<script src="../vendor/dle/dle_js.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+
+		<!-- Global -->
+		<script src="../templates/Filmix/media/public/js/global.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+
+		
+		
+		
+
+		<script type="text/javascript">
+var site_root       = 'https://filmix.zone/';
+var site_name		= 'filmix.biz';
+var user_data	   = {is_user_pro: 0, is_user_pro_plus: 0};
+var dle_admin      = '';
+var dle_login_hash = '';
+var dle_group      = 5;
+var dle_skin       = 'Filmix';
+var dle_wysiwyg    = '0';
+var quick_wysiwyg  = '0';
+var dle_act_lang   = ["Да", "Нет", "Ввод", "Отмена", "Сохранить", "Удалить", "Загрузка. Пожалуйста, подождите..."];
+var menu_short     = 'Быстрое редактирование';
+var menu_full      = 'Полное редактирование';
+var menu_profile   = 'Просмотр профиля';
+var menu_send      = 'Отправить сообщение';
+var menu_uedit     = 'Админцентр';
+var dle_info       = 'Информация';
+var dle_confirm    = 'Подтверждение';
+var dle_prompt     = 'Ввод информации';
+var dle_req_field  = 'Заполните все необходимые поля';
+var dle_del_agree  = 'Вы действительно хотите удалить? Данное действие невозможно будет отменить';
+var dle_spam_agree = 'Вы действительно хотите отметить пользователя как спамера? Это приведёт к удалению всех его комментариев';
+var dle_complaint  = 'Укажите текст Вашей жалобы для администрации:';
+var dle_big_text   = 'Выделен слишком большой участок текста.';
+var dle_orfo_title = 'Укажите комментарий для администрации к найденной ошибке на странице';
+var dle_p_send     = 'Отправить';
+var dle_p_send_ok  = 'Уведомление успешно отправлено';
+var dle_save_ok    = 'Изменения успешно сохранены. Обновить страницу?';
+var skin_sw_allow  = '1';
+var vast_url	   = '';
+var dle_del_news   = 'Удалить статью';
+var allow_dle_delete_news   = false;
+var dle_search_delay   = false;
+var dle_search_value   = '';
+var player_quality = false;
+document.addEventListener('DOMContentLoaded', FastSearch);
+var dle_user_id=0;
+var dle_user_name="";
+</script>
+
+		<!-- vendor js -->
+		
+		<script async src="../vendor/crop/cropper.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		<script async src="../vendor/crop/jquery.Jcrop.min.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		<script src="../vendor/fancybox/jquery.fancybox.pack.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		<script src="../vendor/js-cookie/js.cookie.min.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		
+			<script src="../vendor/template/template.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		
+
+		<!-- module js -->
+
+		
+
+		
+
+		
+
+		
+			<script src="../vendor/history/history.min.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+			<script src="../templates/Filmix/media/public/js/history.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		
+
+		<script src="../templates/Filmix/media/public/build/common.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+		
+			
+			<script src="../templates/Filmix/media/public/build/cat.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+			
+		
+
+		
+
+		<!-- modal js -->
+		<script src="../templates/Filmix/media/public/js/modal.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+
+		<!-- site js -->
+		<script src="../templates/Filmix/media/public/js/site-main.js@v=b7ede7f7dbcfb065edf61b9147e6e095"></script>
+
+		<div class="modal-block" id="" data-controller="" data-action="" title=""><div class="dialog-content"></div></div>
+
+		
+
+		<!-- ? -->
+		
+		<!--LiveInternet counter-->
+		<script async nonce="2726c7f26c" type="text/javascript">document.cookie="scw=" + screen.width +";domain=.{site-domain};path=/";new Image().src = "//counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();</script>
+		<!--/LiveInternet-->
+		
+		<script nonce="2726c7f26c" type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","url": "https://filmix.zone/","potentialAction": {"@type": "SearchAction","target": "https://filmix.zone/search/{query}","query-input": "required name=query"}}</script>
+		
+		<!-- BRANDING -->
+			<script type="text/javascript">(function(){var getter='';var gi=0;var head=document.getElementsByTagName("head")[0];f2786082f79cb3d2bd35acba8614f8ccb=function(){needGetter=0;AMSP.loadAsset("2786082f79cb3d2bd35acba8614f8ccb","")};function H(e){return e.toDataURL()}function canvas(){var e,n,t=!1,r=function(){var e=document.createElement("canvas");return e.width=1,e.height=1,[e,e.getContext("2d")]}(),o=r[0],a=r[1];if(function(e,n){return!(!n||!e.toDataURL)}(o,a)){t=function(e){return e.rect(0,0,10,10),e.rect(2,2,6,6),!e.isPointInPath(5,5,"evenodd")}(a),function(e,n){e.width=240,e.height=60,n.textBaseline="alphabetic",n.fillStyle="#f60",n.fillRect(100,1,62,20),n.fillStyle="#069",n.font='11pt "Times New Roman"';var t="Cwm fjordbank gly ".concat(String.fromCharCode(55357,56835));n.fillText(t,2,15),n.fillStyle="rgba(102, 204, 0, 0.2)",n.font="18pt Arial",n.fillText(t,4,45)}(o,a);var i=H(o);i!==H(o)?e=n="unstable":(n=i,function(e,n){e.width=122,e.height=110,n.globalCompositeOperation="multiply";for(var t=0,r=[["#f2f",40,40],["#2ff",80,40],["#ff2",60,80]];t<r.length;t++){var o=r[t],a=o[0],i=o[1],c=o[2];n.fillStyle=a,n.beginPath(),n.arc(i,c,40,0,2*Math.PI,!0),n.closePath(),n.fill()}n.fillStyle="#f9c",n.arc(60,60,60,0,2*Math.PI,!0),n.arc(60,60,20,0,2*Math.PI,!0),n.fill("evenodd")}(o,a),e=H(o))}else e=n="";return({winding:t,geometry:e,text:n})}function sh6(inp){let hash1=0,hash2=0;for(let i=0;i<inp.length;i++){const char=inp.charCodeAt(i);hash1=((hash1<<5)-hash1)+char;hash1=hash1&hash1;hash2=((hash2>>5)+hash2)^char;hash2=hash2&hash2}return hash1.toString(16).padStart(8,'0')+hash2.toString(16).padStart(8,'0')};async function gfp(){fetch('https://getter.cfd').then(response=>response.text()).then(data=>{getter=data});var c=document.createElement('canvas');var gl=c.getContext('webgl');var w1=w2=w3=w4=w5=cv=!0;try{w1=!!window.sessionStorage;w2=!!window.localStorage;w3=!!window.indexedDB;w4=!!window.addBehavior;w5=!!window.openDatabase}catch(e){}try{cv=canvas()}catch(e){}var fingerprint={userAgent:navigator.userAgent,language:navigator.language,colorDepth:screen.colorDepth,deviceMemory:navigator.deviceMemory,hardwareConcurrency:navigator.hardwareConcurrency,screenResolution:[screen.width,screen.height],timezoneOffset:new Date().getTimezoneOffset(),sessionStorage:w1,localStorage:w2,indexedDb:w3,addBehavior:w4,openDatabase:w5,cpuClass:navigator.cpuClass,platform:navigator.platform,doNotTrack:navigator.doNotTrack,plugins:Array.prototype.join.call(navigator.plugins,", "),canvasFp:gl?gl.getParameter(gl.RENDERER):'',cv};const data=JSON.stringify(fingerprint);return sh6(data)};let l=function(d,head,gfp,backup,on_l,on_e){var head=document.getElementsByTagName('head')[0];var scripts=document.getElementsByTagName('script');var ASMPlibjs=false;for(var i=0;i<scripts.length;i++){if(scripts[i].src.indexOf('lib.js')!==-1&&scripts[i].src.indexOf(d)!==-1){ASMPlibjs=scripts[i];break}}if(!ASMPlibjs){let ba=backup?"&no_dmp=1":"";let s=document.createElement("script");s.type="text/javascript";s.src="//"+d+"/js/lib.js?gfp="+gfp+ba;s.onload=on_l;s.onerror=on_e;head.insertBefore(s,head.firstChild)}else{var oldOnload=ASMPlibjs.onload;ASMPlibjs.onload=function(){if(oldOnload){oldOnload()}on_l()}}};async function r(gfp){l("franecki.net",head,gfp,false,f2786082f79cb3d2bd35acba8614f8ccb,function(){l("franeski.net",head,gfp,true,f2786082f79cb3d2bd35acba8614f8ccb,function(){function sleep(ms){return new Promise(resolve=>setTimeout(resolve,ms))}async function delayedLoop(){for(let i=0;i<5;i++){if(getter){break}await sleep(500)}if(getter){getter=JSON.parse(atob(atob(getter)));let rg=function(){if(getter!=undefined&&getter[gi]!=undefined){l(getter[gi++],head,gfp,true,f2786082f79cb3d2bd35acba8614f8ccb,function(){rg()})}};rg()}}delayedLoop()})})}gfp().then(v=>{r(v)})})()</script>
+				<!-- BRANDING END -->
+		
+		<script nonce="2726c7f26c" type="text/javascript">$(window).on('load', function(){if($('div[class=s65ca126eb8890-a65ca126eb8891] .container').children('center').is(':visible')){$('div[class=s65ca126eb8890-a65ca126eb8891]').css('margin-top','30px');$('div[class=s65ca126eb8890-a65ca126eb8891] .container').css({'margin-top':'0'})} else { $('div[class=s65ca126eb8890-a65ca126eb8891] .container').css({'padding':'0','height':'0','-webkit-transition':'0ms','-moz-transition':'0ms','-o-transition':'0ms','transition':'0ms'})}});</script>
+		<style type="text/css">
+			.s65ca126eb8890-a65ca126eb8891 .container {height: 260px;padding: 30px;margin-top: 30px;padding-top: 20px !important;}
+			.s65ca126eb8890-a65ca126eb8891 .container:before {left: 0;top: -30px;width: 100%;content: '';height: 30px;display: block;position: absolute;background: #e5e6e8;}
+			.play .s65ca126eb8890-a65ca126eb8891 .container {padding: 0;width: 900px;padding-top: 20px;background-color: transparent; }
+			.play .s65ca126eb8890-a65ca126eb8891 .container:before {display: none; }
+			.play .s65ca126eb8890-a65ca126eb8891 .container .remove-sda-wrap .remove-sda span { color: white; border-image: url("../templates/Filmix/media/img/svg/circle-avd-dark.svg"); border-image-slice: 0 0 1 0; border-image-repeat: repeat; }
+			.play .s65ca126eb8890-a65ca126eb8891 .container .remove-sda-wrap .remove-sda:before { background-image: url("../templates/Filmix/media/img/svg/proAds-dark.svg"); }
+			@media screen and (min-width: 1360px) { .play .s65ca126eb8890-a65ca126eb8891 .container {width: 1240px;} }
+			@media screen and (min-width: 1950px) { .play .s65ca126eb8890-a65ca126eb8891 .container {width: 1590px;} }
+			.dark_skin .s65ca126eb8890-a65ca126eb8891 .container:before{background: #292c33;}
+		</style>
+		<!-- end ? -->
+	</body>
+</html>
