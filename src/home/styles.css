@@ -1,185 +1,87 @@
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-.header_logo {
-    margin-bottom: 30px;
-}
-
-.user-card {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-}
-
-.user-card-item {
-    width: 400px;
-    height: 500px;
-    border: 2px solid #333;
-    border-radius: 10px;
-    padding: 20px;
-    margin-right: 30px;
-    box-sizing: border-box;
-}
-
-.user-card-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.user-card-item h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.user-card-item p {
-    font-size: 16px;
-    margin-bottom: 8px;
-}
-
-body {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    margin-bottom: 150px;
-    box-sizing: border-box;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
 }
 
-nav {
-    margin-top: 10px;
+header h1 {
+    margin: 0;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
     margin-right: 20px;
 }
 
-main {
-    padding: 20px;
-    margin-bottom: 100px;
+nav ul li:last-child {
+    margin-right: 0;
 }
 
-.main-sections {
-    margin-bottom: 10px;
-    background-color: #f5f5f5;
-    padding: 15px;
-    border-radius: 5px;
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
 }
 
-ul {
-    list-style-type: none;
+.main {
+    padding: 20px 0;
 }
 
-li {
-    margin-bottom: 10px;
-}
-
-.list_of_films {
-    text-align: match-parent;
-}
-
-.section2 {
-    margin-top: 10px;
-}
-
-footer {
+.hero {
     background-color: #333;
-    color: white;
+    color: #fff;
+    padding: 100px 0;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
-.copyright-block {
-    margin-top: 10px;
-    background-color: #bbff00;
-    padding: 10px;
+.hero h2 {
+    margin-bottom: 20px;
+}
+
+.hero p {
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e50914;
+    color: #fff;
+    text-decoration: none;
     border-radius: 5px;
-    color: #333;
 }
 
-img {
+.movies {
+    padding: 50px 0;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.movie {
+    text-align: center;
+}
+
+.movie img {
     max-width: 100%;
     height: auto;
-}
-
-span {
-    font-style: italic;
-}
-
-.image-thumbnail {
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-}
-
-.list-head {
-    margin: 0;
-    margin-top: 10px;
-    background-color: #bbff00;
-    padding: 10px 10px 10px 50px;
-    border-radius: 5px;
-    color: #333;
-    position: sticky;
-    top: 10px;
-}
-
-.daniel-craig {
-    border-style: wave;
-    border-color: #e7070e;
-}
-
-.pierce-brosnan {
-    border-style: double;
-    border-color: #1d8304;
-}
-
-.timothy-dalton {
-    border-style: dashed;
-    border-color: #550351;
-}
-
-.roger-moore {
-    border-style: dot-dash;
-    border-color: #0062ff;
-    position: relative;
-    top: -40px;
-    left: -40px;
-}
-
-.sean-connery {
-    border-style: inset;
-    border-color: #eded07;
-    position: relative;
-    top: -20px;
-    left: -20px;
-}
-
-.james-bond {
-    border-style: dashed;
-    border-color: aqua;
-    border-radius: 30px;
-}
-
-.sean-connery,
-.james-bond,
-.daniel-craig,
-.pierce-brosnan,
-.roger-moore,
-.timothy-dalton {
-    border-width: 4px 8px;
-    background-image: url("./images/007_5.webp");
 }

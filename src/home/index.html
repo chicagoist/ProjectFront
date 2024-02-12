@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css" type="text/css"/>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project Front</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Netflix-like Website</title>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <header class="wrap">
-            <div class="header_top">
-                <div class="face_logo">
-                    <a href="#"
-                    ><img alt="adium" class="rounded-corners" src="images/Adium.png" title="Audium Logo" width="100"
-                    /></a>
-                </div>
-                <nav class="header_menu">
-
-                    <a href="#">Главная</a>
-                    <a href="#">ЧаВо</a>
-                    <a href="#">Блог</a>
-                    <a href="#">Контакты</a>
-
-                </nav>
-
-            </div>
-
-        </header>
+<header>
+    <div class="container">
+        <h1>MyFlix</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">TV Shows</a></li>
+                <li><a href="#">My List</a></li>
+            </ul>
+        </nav>
     </div>
-</div>
-<div>
-    <main>
-        <section>
+</header>
 
-        </section>
-    </main>
-</div>
-</body>
-<div>
-    <footer class="footer">Ссылки,логотип и информация о сайте
-        <div class="copyright-block">
-            <a href="https://github.com/chicagoist/AIT-TR-FullStack/tree/main/Front/src" target="_blank">GitHub</a>
+<main>
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to MyFlix</h2>
+            <p>Stream unlimited movies and TV shows anytime, anywhere.</p>
+            <a href="#" class="btn">Start Watching</a>
         </div>
-    </footer>
-</div>
+    </section>
+
+    <section class="movies">
+        <div class="container">
+            <h2>Popular Movies</h2>
+            <div class="movie-grid">
+                <div class="movie">
+                    <img src="movie1.jpg" alt="Movie 1">
+                    <h3>Movie 1</h3>
+                </div>
+                <div class="movie">
+                    <img src="movie2.jpg" alt="Movie 2">
+                    <h3>Movie 2</h3>
+                </div>
+                <!-- TO DO -->
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 MyFlix. All rights reserved.</p>
+    </div>
+</footer>
+</body>
 </html>
