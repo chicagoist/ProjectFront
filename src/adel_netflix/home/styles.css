@@ -28,7 +28,7 @@ header {
   background-color: #000;
   color: #fff;
   padding: 20px 0;
-  background-image:  url(../images/3_D_Bilder.jpg);
+  background-image: url(../images/Header.png);
   background-size: cover;
   font-size: 20px;
   position: fixed;
@@ -113,9 +113,10 @@ nav ul li:last-child {
 }
 
 nav ul li a {
-  color: #fff;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-size: 24px;
+  font-weight: bold;
 }
 
 .main {
