@@ -1,0 +1,1189 @@
+document.addEventListener('touchstart', function() {}, { passive: true });
+
+function doPoll(e, o) {
+    var t = document.getElementById("dlepollform_" + o),
+        i = t.status.value,
+        n = "";
+    if (1 != dle_poll_voted[o]) {
+        if ("results" != e && 1 != i) {
+            for (var d = 0; d < t.elements.length; d++) {
+                var l = t.elements[d];
+                if ("radio" == l.type && 1 == l.checked) {
+                    n = l.value;
+                    break
+                }
+                "checkbox" == l.type && 1 == l.checked && (n = n + l.value + " ")
+            }
+            if ("vote" == e && "" == n)
+                return;
+            dle_poll_voted[o] = 1
+        } else
+            i = 1,
+            t.status.value = 1;
+        1 == i && "vote" == e && (i = 0,
+                t.status.value = 0,
+                e = "list"),
+            $.post(site_root + "engine/ajax/poll.php", {
+                news_id: o,
+                action: e,
+                answer: n,
+                vote_skin: dle_skin
+            }, function(e) {
+                
+                    $("#dle-poll-list-" + o).fadeOut(500, function() {
+                        $(this).html(e),
+                            $(this).fadeIn(500)
+                    })
+            })
+    }
+}
+
+function doMobFavorites(id, action) {
+    var data = {
+        fav_id: id,
+        action: action,
+        skin: dle_skin,
+        alert: 0,
+    };
+
+    var status = action == 'minus' ? 'plus' : 'minus';
+
+    $.get(site_root + 'engine/ajax/favorites.php', data, function () {
+        action === 'minus' ? showDialog('Фильм удален из закладок!') : showDialog('Фильм добавлен в закладки!');
+        $('body').find('#fav-id-' + id).toggleClass('active').find('span').attr('onclick', 'doMobFavorites("' + id + '", "' + status + '", 0)');
+    });
+}
+
+setTimeout(function(){
+    if (dle_skin && dle_skin === 'FilmixMobile'){
+        window.doFavorites = function(id, action) {
+            doMobFavorites(id, action);
+        }
+    }
+}, 100);
+
+function watchMobLater(id, action) {
+	var status = action == true ? 'add' : 'rm';
+	$.post(
+		'/engine/ajax/watch_later.php',
+		{
+			action: status,
+			post_id: id,
+		},
+		function (data) {
+			$('#future-id-' + id)
+				.toggleClass('active')
+                .find('span')
+				.attr( 'onclick', 'watchMobLater("' + id + '", ' + (action == true ? false : true) + ')'
+			);
+			var msg = status === 'add'
+					? 'Фильм добавлен в посмотреть позже'
+					: 'Фильм удален из посмотреть позже';
+			showDialog(msg, 1200);
+		}
+	);
+}
+setTimeout(function(){
+    if (dle_skin && dle_skin === 'FilmixMobile'){
+        window.watch_later = function(id, action) {
+            watchMobLater(id, action);
+        }
+    }
+}, 100);
+
+function doPlFavorites(id, action, name) {
+    if (dle_group != 5) {
+        var url = action == 'add' ? '/api/playlist/favorites/add' : '/api/playlist/favorites/rm';
+        $('.favori[data-pl-id="' + id + '"]').toggleClass('active');
+        $.post(url, {id: id}, function (data) {
+                if (data.type == 'success') {
+                    var msg = action == 'add'
+                        ? 'Плейлист <span class="pl-name">' + name + '</span> додан в закладки'
+                        : 'Плейлист <span class="pl-name">' + name + '</span> удален из закладок';
+                    action = action == 'add' ? 'rm' : 'add';
+
+                    $('.favori[data-pl-id="' + id + '"]')
+                        .attr('onclick', "doPlFavorites('" + id + "', '" + action + "', '" + name + "');");
+                    showDialog(msg);
+                } else {
+                    $('.favori[data-pl-id="' + id + '"]').toggleClass('active');
+                    showDialog(data.message, 1500);
+                }
+            },
+            'json'
+        );
+    }
+}
+
+function removePlItem(id, title) {
+    $.post('/engine/ajax/playlist_handler.php', {action: 'rmPlItem', plItemId: id}, function (res) {
+        if (res.type == 'success') {
+            showDialog('Фильм <span class="pl-name">' + title + '</span> удален из плейлиста', 1500);
+            $('.threedots.movie').dialog('close');
+            $('#' + id).remove();
+        } else {
+            showDialog(res.error);
+        }
+    }, 'json');
+}
+
+function showDialog(text, time) {
+    $('.access-window p').empty();
+    $('.access-window p').append(text);
+    $('.access-window').fadeIn();
+    if (!time){
+        time = 3000;
+    }
+    setTimeout(function() {
+        $('.access-window').fadeOut();
+    }, time);
+}
+
+function RunAjaxJS(e, o) {
+    var t = new Date,
+        i = !1,
+        t = t.getTime(),
+        n = /<script.*?>(.|[\r\n])*?<\/script>/gi,
+        d = n.exec(o);
+    if (null != d) {
+        for (var l = Array(d.shift()), i = !0; d;)
+            d = n.exec(o),
+            null != d && l.push(d.shift());
+        for (n = 0; n < l.length; n++)
+            o = o.replace(l[n], '<span id="' + t + n + '" style="display:none;"></span>')
+    }
+    if ($("#" + e).html(o),
+        i)
+        for (i = /<script.*?>((.|[\r\n])*?)<\/script>/gi,
+            n = 0; n < l.length; n++) {
+            var a = document.getElementById(t + "" + n),
+                d = a.parentNode;
+            if (d.removeChild(a),
+                i.lastIndex = 0,
+                a = i.exec(l[n]),
+                d = d.appendChild(document.createElement("script")),
+                d.text = a[1],
+                a = l[n].substring(l[n].indexOf(" ", 0), l[n].indexOf(">", 0)).split(" "),
+                1 < a.length)
+                for (var s = 0; s < a.length; s++)
+                    if (0 < a[s].length) {
+                        var c = a[s].split("=");
+                        c[1] = c[1].substr(1, c[1].length - 2),
+                            d.setAttribute(c[0], c[1])
+                    }
+        }
+}
+
+function IPMenu(e, o, t, i) {
+    var n = [];
+    return n[0] = '<a href="https://www.nic.ru/whois/?ip=' + e + '" target="_blank">' + o + "</a>",
+        n[1] = '<a href="' + site_root + dle_admin + "?mod=iptools&ip=" + e + '" target="_blank">' + t + "</a>",
+        n[2] = '<a href="' + site_root + dle_admin + "?mod=blockip&ip=" + e + '" target="_blank">' + i + "</a>",
+        n
+}
+
+function ajax_save_for_edit(e, o) {
+    var t = {};
+    return "1" == quick_wysiwyg && submit_all_data(),
+        "2" == quick_wysiwyg && tinyMCE.triggerSave(),
+        $.each($("#ajaxnews" + e).serializeArray(), function(e, o) {
+            -1 != o.name.indexOf("xfield") && (t[o.name] = o.value)
+        }),
+        document.getElementById("allow_br_" + e).checked && (t.allow_br = 1),
+        document.getElementById("approve_" + e).checked && (t.approve = 1),
+        t.news_txt = $("#dleeditnews" + e).val(),
+        t.full_txt = $("#dleeditfullnews" + e).val(),
+        t.title = $("#edit-title-" + e).val(),
+        t.reason = $("#edit-reason-" + e).val(),
+        t.id = e,
+        t.field = o,
+        t.action = "save",
+        $.post(site_root + "engine/ajax/editnews.php", t, function(e) {
+            
+                "ok" != e ? DLEalert(e, dle_info) : ($("#dlepopup-news-edit").dialog("close"),
+                    DLEconfirm(dle_save_ok, dle_confirm, function() {
+                        location.reload(!0)
+                    }))
+        }), !1
+}
+
+function ajax_prep_for_edit(e, o) {
+    for (var t = 0, i = c_cache.length; i > t; t++)
+        t in c_cache && (c_cache[t] || "" != c_cache[t]) && ajax_cancel_comm_edit(t);
+    return $.get(site_root + "engine/ajax/editnews.php", {
+            id: e,
+            field: o,
+            action: "edit"
+        }, function(t) {
+            var i = "none";
+            $("#modal-overlay").remove(),
+                $("body").prepend('<div id="modal-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #666666; opacity: .40;filter:Alpha(Opacity=40); z-index: 999; display:none;"></div>'),
+                $("#modal-overlay").css({
+                    filter: "alpha(opacity=40)"
+                }).fadeIn();
+            var n = {};
+            n[dle_act_lang[3]] = function() {
+                    $(this).dialog("close")
+                },
+                n[dle_act_lang[4]] = function() {
+                    ajax_save_for_edit(e, o)
+                },
+                $("#dlepopup-news-edit").remove(),
+                $("body").prepend("<div id='dlepopup-news-edit' class='dlepopupnewsedit' title='" + menu_short + "' style='display:none'></div>"),
+                $(".dlepopupnewsedit").html(""),
+                $("#dlepopup-news-edit").dialog({
+                    autoOpen: !0,
+                    width: "800",
+                    height: 500,
+                    buttons: n,
+                    resizable: !1,
+                    dialogClass: "modalfixed",
+                    dragStart: function() {
+                        i = $(".modalfixed").css("box-shadow"),
+                            $(".modalfixed").css("box-shadow", "none")
+                    },
+                    dragStop: function() {
+                        $(".modalfixed").css("box-shadow", i)
+                    },
+                    close: function() {
+                        $(this).dialog("destroy"),
+                            $("#modal-overlay").fadeOut(function() {
+                                $("#modal-overlay").remove()
+                            })
+                    }
+                }),
+                830 < $(window).width() && 530 < $(window).height() && ($(".modalfixed.ui-dialog").css({
+                        position: "fixed"
+                    }),
+                    $("#dlepopup-news-edit").dialog("option", "position", ["0", "0"])),
+                RunAjaxJS("dlepopup-news-edit", t)
+        }), !1
+}
+
+function ajax_comm_edit(e, o) {
+    for (var t = 0, i = c_cache.length; i > t; t++)
+        t in c_cache && "" != c_cache[t] && ajax_cancel_comm_edit(t);
+    return c_cache[e] && "" != c_cache[e] || (c_cache[e] = $("#comm-id-" + e).html()),
+        $.get(site_root + "engine/ajax/editcomments.php", {
+            id: e,
+            area: o,
+            action: "edit"
+        }, function(o) {
+            
+                RunAjaxJS("comm-id-" + e, o),
+                setTimeout(function() {
+                    $("html,body").stop().animate({
+                        scrollTop: $("#comm-id-" + e).offset().top - 70
+                    }, 700)
+                }, 100)
+        }), !1
+}
+
+function ajax_cancel_comm_edit(e) {
+    return "" != c_cache[e] && $("#comm-id-" + e).html(c_cache[e]),
+        c_cache[e] = "", !1
+}
+
+function ajax_save_comm_edit(e, o) {
+    "1" == dle_wysiwyg && submit_all_data(),
+        "2" == dle_wysiwyg && tinyMCE.triggerSave();
+    var t = $("#dleeditcomments" + e).val();
+    return $.post(site_root + "engine/ajax/editcomments.php", {
+            id: e,
+            comm_txt: t,
+            area: o,
+            action: "save"
+        }, function(o) {
+            
+                c_cache[e] = "",
+                $("#comm-id-" + e).html(o)
+        }), !1
+}
+
+function DeleteComments(e, o) {
+    DLEconfirm(dle_del_agree, dle_confirm, function() {
+            $.get(site_root + "engine/ajax/deletecomments.php", {
+                id: e,
+                dle_allow_hash: o
+            }, function(e) {
+                
+                    e = parseInt(e),
+                    isNaN(e) || ($("html,body").stop().animate({
+                            scrollTop: $("#comment-id-" + e).offset().top - 70
+                        }, 700),
+                        setTimeout(function() {
+                            $("#comment-limb-" + e).slideUp(1400),
+                                $("#comment-id-" + e).hide("blind", {}, 1400)
+                        }, 700))
+            })
+    })
+}
+
+function MarkSpam(e, o) {
+    DLEconfirm(dle_spam_agree, dle_confirm, function() {
+            $.get(site_root + "engine/ajax/adminfunction.php", {
+                id: e,
+                action: "commentsspam",
+                user_hash: o
+            }, function(e) {
+                
+                    "error" != e && DLEconfirm(e, dle_confirm, function() {
+                        location.reload(!0)
+                    })
+            })
+    })
+}
+
+function CheckLogin() {
+    var e = document.getElementById("name").value;
+    return $.post(site_root + "engine/ajax/registration.php", {
+            name: e
+        }, function(e) {
+            
+                $("#result-registration").html(e)
+        }), !1
+}
+
+function doCalendar(e, o, t) {
+        $.get(site_root + "engine/ajax/calendar.php", {
+            month: e,
+            year: o
+        }, function(e) {
+            
+                "left" == t ? $("#calendar-layer").hide("slide", {
+                    direction: "left"
+                }, 500, function() {
+                    $("#calendar-layer").html(e).show("slide", {
+                        direction: "right"
+                    }, 500)
+                }) : $("#calendar-layer").hide("slide", {
+                    direction: "right"
+                }, 500, function() {
+                    $("#calendar-layer").html(e).show("slide", {
+                        direction: "left"
+                    }, 500)
+                })
+        })
+}
+
+function doRate(a, o, t) {
+    window.dorate = true;
+    var flag1 = $("#ratig-layer-" + o + " i.positive").hasClass('active'),
+        flag2 = $("#ratig-layer-" + o + " i.negative").hasClass('active');
+    var module = t;
+    $.get(site_root + "engine/ajax/rating.php", {
+        go_rate: a,
+        news_id: o,
+        skin: dle_skin,
+        module: module
+    }, function(e) {
+        if (e.type == 'success') {
+            if (module != 'showfull') {
+                $('.like[data-id="' + o + '"]').find('.count').text(e.error.rate);
+                $('.like[data-id="' + o + '"]').find('.ratePos').text(e.error.p_votes);
+                $('.like[data-id="' + o + '"]').find('.rateNeg').text(e.error.n_votes);
+
+                if (e.error.rate.charAt(0) == '+') {
+                    $('.like[data-id="' + o + '"]').find('.count').addClass('green');
+                    $('.like[data-id="' + o + '"]').find('.count').removeClass('red');
+                } else if (e.error.rate.charAt(0) == '-') {
+                    $('.like[data-id="' + o + '"]').find('.count').removeClass('green');
+                    $('.like[data-id="' + o + '"]').find('.count').addClass('red');
+                } else if (e.error.rate.charAt(0) == '0') {
+                    $('.like[data-id="' + o + '"]').find('.count').removeClass('green');
+                    $('.like[data-id="' + o + '"]').find('.count').removeClass('red');
+                }
+            } else {
+                $("#ratig-layer-" + o).find('.ratePos').text(e.error.p_votes);
+                $("#ratig-layer-" + o).find('.rateNeg').text(e.error.n_votes);
+                // $("#ratig-layer-" + o).html(t);
+                // $("#vote-num-id-" + o).html(e.votenum),
+                $("#slider-range-min").find(".percent-p").css("width", e.error.p_rate + "%"),
+                    $(".full-panel").find(".green").html(e.error.p_rate + "%"),
+                    $("#slider-range-min").find(".pic").css("left", e.error.p_rate + "%"),
+                    $("#slider-range-min").find(".percent-n").css("width", e.error.n_rate + "%"),
+                    $(".full-panel").find(".red").html(e.error.n_rate + "%");
+            }
+
+            if (a == -1 && !flag1 && !flag2) {
+                $("#ratig-layer-" + o + " i.negative").addClass('active');
+                $("#ratig-layer-" + o + " i.positive").removeClass('active');
+            } else if (a == -1 && !flag2) {
+                if (dle_group != 5) {
+                    if (typeof common != 'undefined')
+						common.showInfo("Удалено из списка понравившихся");
+                    else
+						showDialog("Удалено из списка понравившихся");
+                }
+                $("#ratig-layer-" + o + " i.negative").addClass('active');
+                $("#ratig-layer-" + o + " i.positive").removeClass('active');
+            } else if (a == -1 && flag2 || a == 1 && flag1) {
+                if (typeof common != 'undefined')
+					common.showInfo("Вы уже голосовали за это видео!");
+                else
+					showDialog("Вы уже голосовали за это видео!");
+            } else if (a == 1 && !flag1) {
+                if (dle_group != 5) {
+                    if (typeof common != 'undefined')
+						common.showInfo("Добавлено в понравившиеся видео!");
+                    else
+						showDialog("Добавлено в понравившиеся видео!");
+                }
+                $("#ratig-layer-" + o + " i.positive").addClass('active');
+                $("#ratig-layer-" + o + " i.negative").removeClass('active');
+            }
+        } else {
+            if (typeof common != 'undefined')
+                common.showInfo(e.error);
+            else
+                showDialog(e.error);
+        }
+    }, "json")
+}
+
+function doUserRate(e, o) {
+        $.get(site_root + "engine/ajax/rating.php", {
+            go_rate: e,
+            user_id: o
+        }, function(e) {
+            if (
+                e.success) {
+                var t = e.rating,
+                    t = t.replace(/&lt;/g, "<"),
+                    t = t.replace(/&gt;/g, ">"),
+                    t = t.replace(/&/g, "&");
+                $("#ratig-layer-" + o).html(t),
+                    $("#vote-num-id-" + o).html(e.votenum),
+                    $("#slider-range-min").find(".percent-p").css("width", e.percent_p + "%"),
+                    $("#slider-range-min").find(".pic").css("left", e.percent_p + "%"),
+                    $("#slider-range-min").find(".percent-n").css("width", e.percent_n + "%")
+            }
+        }, "json")
+}
+
+function doAddComments() {
+    var e = document.getElementById("dle-comments-form");
+    if ("1" == dle_wysiwyg || "2" == dle_wysiwyg) {
+        "1" == dle_wysiwyg ? submit_all_data() : tinyMCE.triggerSave();
+        var o = "wysiwyg"
+    } else
+        o = "";
+    if ("" == e.comments.value || "" == e.name.value)
+        return DLEalert(dle_req_field, dle_info), !1;
+    var t = e.question_answer ? e.question_answer.value : "",
+        i = e.sec_code ? e.sec_code.value : "";
+    if (e.recaptcha_response_field)
+        var n = Recaptcha.get_response(),
+            d = Recaptcha.get_challenge();
+    else
+        d = n = "";
+    var l = e.allow_subscribe && 1 == e.allow_subscribe.checked ? "1" : "0";
+        $.post(site_root + "engine/ajax/addcomments.php", {
+            post_id: e.post_id.value,
+            comments: e.comments.value,
+            name: e.name.value,
+            mail: e.mail.value,
+            editor_mode: o,
+            skin: dle_skin,
+            sec_code: i,
+            question_answer: t,
+            recaptcha_response_field: n,
+            recaptcha_challenge_field: d,
+            allow_subscribe: l
+        }, function(o) {
+            e.sec_code && (e.sec_code.value = "",
+                    reload()),
+                
+                RunAjaxJS("dle-ajax-comments", o),
+                "error" != o && document.getElementById("blind-animation") && ($("html,body").stop().animate({
+                        scrollTop: $("#dle-ajax-comments").offset().top - 70
+                    }, 1100),
+                    setTimeout(function() {
+                        $("#blind-animation").show("blind", {}, 1500, function() {
+                            tree_unwrap()
+                        })
+                    }, 1100))
+        })
+}
+
+function CommentsPage(e, o) {
+    return $.get(site_root + "engine/ajax/comments.php", {
+            cstart: e,
+            news_id: o,
+            skin: dle_skin
+        }, function(t) {
+            
+                isNaN(e) || isNaN(o) || ($("#dle-comm-link").unbind("click"),
+                    $("#dle-comm-link").bind("click", function() {
+                        return CommentsPage(e, o), !1
+                    })),
+                scroll(0, $("#dle-comments-list").offset().top - 70),
+                $("#dle-comments-list").html(t.comments),
+                $(".dle-comments-navigation").html(t.navigation)
+        }, "json"), !1
+}
+
+function dle_copy_quote(e) {
+    dle_txt = "",
+        window.getSelection ? dle_txt = window.getSelection() : document.selection && (dle_txt = document.selection.createRange().text),
+        "" != dle_txt && (dle_txt = "[quote=" + e + "]" + dle_txt + "[/quote]")
+}
+
+function dle_ins(e) {
+    if (!document.getElementById("dle-comments-form"))
+        return !1;
+    var o = document.getElementById("dle-comments-form").comments,
+        t = "";
+    return "" != dle_txt ? ("0" == dle_wysiwyg ? (o.value += dle_txt + "\n",
+            o.focus()) : (t = dle_txt + "<br />",
+            "1" == dle_wysiwyg ? (oUtil.obj.focus(),
+                oUtil.obj.insertHTML(t)) : tinyMCE.execCommand("mceInsertContent", !1, t)),
+        setTimeout(function() {
+            $("html,body").stop().animate({
+                scrollTop: $("#dle-comments-form").offset().top - 70
+            }, 700)
+        }, 100)) : ($.get(site_root + "engine/ajax/quote.php", {
+            id: e
+        }, function(e) {
+            
+                "0" == dle_wysiwyg ? (o.value += e + "\n",
+                    o.focus()) : (t = e + "<br />",
+                    "1" == dle_wysiwyg ? (oUtil.obj.focus(),
+                        oUtil.obj.insertHTML(t)) : tinyMCE.execCommand("mceInsertContent", !1, t)),
+                setTimeout(function() {
+                    $("html,body").stop().animate({
+                        scrollTop: $("#dle-comments-form").offset().top - 70
+                    }, 700)
+                }, 100)
+        })), !1
+}
+
+function ShowOrHide(e) {
+    var o = $("#" + e);
+    $('.title_spoiler .icon-plus').toggleClass('active');
+    e = document.getElementById("image-" + e) ? document.getElementById("image-" + e) : null;
+    var t = o.height() / 200 * 1e3;
+    t > 3e3 && (t = 3e3),
+        250 > t && (t = 250),
+        "none" == o.css("display") ? (o.show("blind", {}, t),
+            e && (e.src = site_root + "templates/" + dle_skin + "/dleimages/spoiler-minus.gif")) : (t > 2e3 && (t = 2e3),
+            o.hide("blind", {}, t),
+            e && (e.src = site_root + "templates/" + dle_skin + "/dleimages/spoiler-plus.gif"))
+}
+
+function ckeck_uncheck_all() {
+    for (var e = document.pmlist, o = 0; o < e.elements.length; o++) {
+        var t = e.elements[o];
+        "checkbox" == t.type && (t.checked = 1 == e.master_box.checked ? !1 : !0)
+    }
+    e.master_box.checked = 1 == e.master_box.checked ? !1 : !0
+}
+
+function confirmDelete(e) {
+    DLEconfirm(dle_del_agree, dle_confirm, function() {
+        document.location = e
+    })
+}
+
+function setNewField() {
+    $("#dle-comments-form").addClass("focus");
+}
+
+function rmFocus() {
+    if ($('textarea#comments').val() == '') {
+        $("#dle-comments-form").removeClass("focus");
+    }
+}
+
+function dle_news_delete(e) {
+    var o = {};
+    allow_dle_delete_news && (o[dle_act_lang[1]] = function() {
+            $(this).dialog("close");
+            var o = {};
+            o = [{
+                    text: dle_act_lang[3],
+                    "class": "btn-cancel",
+                    click: function() {
+                        $(this).dialog("close")
+                    }
+                }, {
+                    text: dle_p_send,
+                    click: function() {
+                        if (1 > $("#dle-promt-text").val().length)
+                            $("#dle-promt-text").addClass("ui-state-error");
+                        else {
+                            var o = $("#dle-promt-text").val();
+                            $(this).dialog("close"),
+                                $("#dlepopup").remove(),
+                                $.post(site_root + "engine/ajax/message.php", {
+                                    id: e,
+                                    text: o
+                                }, function(o) {
+                                    LocalStorage.setItem('deletenews', true);
+                                    "ok" == o ? document.location = site_root + "index.php?do=deletenews&id=" + e + "&hash=" + dle_login_hash : DLEalert("Send Error", dle_info)
+                                })
+                        }
+                    }
+                }],
+                $("#dlepopup").remove(),
+                $("body").append("<div id='dlepopup' class='dle-promt' title='" + dle_notice + "' style='display:none'><div class='dialog-content'><p>" + dle_p_text + "</p><div class='textarea'><textarea name='dle-promt-text'></textarea></div></div></div>"),
+                $("#dlepopup").dialog({
+                    autoOpen: !0,
+                    width: 600,
+                    height: 200,
+                    resizable: !1,
+                    buttons: o,
+                    open: function() {
+                        $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+                    }
+                }),
+                $("#dlepopup").dialog("option", "position", ["0", "0"]);
+        }),
+        o = [{
+            text: dle_act_lang[1],
+            "class": "btn-cancel mini",
+            click: function() {
+                $(this).dialog("close")
+            }
+        }, {
+            text: dle_act_lang[0],
+            "class": "mini",
+            click: function() {
+                $(this).dialog("close"),
+                    LocalStorage.setItem('deletenews', true);
+                document.location = site_root + "index.php?do=deletenews&id=" + e + "&hash=" + dle_login_hash
+            }
+        }],
+        $("#dlepopup").remove(),
+        $("body").append("<div id='dlepopup' class='dle-promt' title='" + dle_confirm + "' style='display:none'><div class='dialog-content'><div id='dlepopupmessage'>" + dle_del_agree + "</div></div><br></div>"),
+        $("#dlepopup").dialog({
+            autoOpen: !0,
+            width: 600,
+            height: 235,
+            modal: !0,
+            resizable: !1,
+            buttons: o,
+            open: function() {
+                $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+            }
+        }),
+        $("#dlepopup").dialog("option", "position", ["0", "0"])
+}
+
+function MenuNewsBuild(e, module, lock_or_unlock) {
+    var o = [];
+    return "" != dle_admin && (o[2] = '<a href="' + site_root + dle_admin + "?mod=editnews&action=editnews&id=" + e + '" target="_blank">' + menu_full + "</a>"),
+        allow_dle_delete_news && (o[4] = "<span onclick=\"sendNotice ('" + e + "'); return false;\">" + dle_notice + "</span>",
+            o[5] = "<span onclick=\"dle_news_delete ('" + e + "'); return false;\">" + dle_del_news + "</span>",
+			o[3] = ($('#main').hasClass('news')) ? "" : "<span data-href=\"" + site_root + dle_admin + "?mod=editnews&action=editnews&id=" + e + "\" class=\"editTorrent\">Редактировать торрент</span>"),
+			o[1] = ($('#main').hasClass('news')) ? "" : "<span onclick=\"sendBlock('" + e + "','" + lock_or_unlock + "'); return false;\" >" + ((lock_or_unlock == 'lock') ? "Блокировать видео" : "Разблокировать видео") + "</span>",
+			o
+}
+
+function sendBlock(e, action) {
+    if (action == "lock") {
+        var o = {};
+        o = [{
+                text: dle_act_lang[3],
+                "class": "btn-cancel",
+                click: function() {
+                    $(this).dialog("close")
+                }
+            }, {
+                text: dle_p_send,
+                click: function() {
+                    if (1 > $("#dle-promt-text").val().length)
+                        $("#dle-promt-text").addClass("ui-state-error");
+                    else {
+                        var o = $("#dle-promt-text").val();
+                        $(this).dialog("close"),
+                            $("#dlepopup").remove(),
+                            $.post(site_root + "engine/ajax/lock_video.php", {
+                                id: e,
+                                text: o,
+                                action: action
+                            }, function(e) {
+                                localStorage.setItem('block_torrent', e.error);
+                                window.location.reload();
+                            }, 'json')
+                    }
+                }
+            }],
+            $("#dlepopup").remove(),
+			$("body").append("<div id='sendNotice' class='sendNotice' style='display:none' title='Блокировать видео'><div class='dialog-content'><p>Введите текст, который Вы бы хотели разместить в объяснение пользователям факта удаления видео с сайта.</p><div class='textarea'><textarea name='dle-promt-text' id='dle-promt-text'></textarea></div>"),
+            $("#sendNotice").dialog({
+                autoOpen: !0,
+                modal: !0,
+                width: getWidth(),
+                height: 390,
+                resizable: !1,
+                buttons: o,
+                open: function() {
+                    $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+                }
+            }),
+            $("#sendNotice").dialog("option", "position", ["0", "0"])
+    } else {
+		DLEconfirm('Вы действительно хотите розблокировать видео?', 'Видео', function() {
+            $.post(site_root + "engine/ajax/lock_video.php", { id: e, action: action }, function(e) {
+                localStorage.setItem('block_torrent', e.error);
+                window.location.reload();
+            }, 'json');
+        });
+    }
+}
+
+function sendNotice(e) {
+    var o = {};
+    o = [{
+            text: dle_act_lang[3],
+            "class": "btn-cancel",
+            click: function() {
+                $(this).dialog("close")
+            }
+        }, {
+            text: dle_p_send,
+            click: function() {
+                if (1 > $("#dle-promt-text").val().length)
+                    $("#dle-promt-text").addClass("ui-state-error");
+                else {
+                    var o = $("#dle-promt-text").val();
+                    $(this).dialog("close"),
+                        $("#dlepopup").remove(),
+                        $.post(site_root + "engine/ajax/message.php", {
+                            id: e,
+                            text: o,
+                            allowdelete: "no"
+                        }, function(e) {
+                            "ok" == e && DLEalert(dle_p_send_ok, dle_info)
+                        })
+                }
+            }
+        }],
+        $("#dlepopup").remove(),
+        $("body").append("<div id='sendNotice' class='sendNotice' style='display:none' title='" + dle_notice + "'><div class='dialog-content'><p>" + dle_p_text + "</p><div class='textarea'><textarea name='dle-promt-text' id='dle-promt-text'></textarea></div>"),
+        $("#sendNotice").dialog({
+            autoOpen: !0,
+            modal: !0,
+            width: getWidth(),
+            resizable: !1,
+            buttons: o,
+            open: function() {
+                $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+            }
+        }),
+        $(".modalfixed.ui-dialog").css({
+            position: "fixed"
+        }),
+        $("#sendNotice").dialog("option", "position", ["0", "0"])
+}
+
+function AddComplaint(e, o) {
+    var t = {};
+    t[dle_act_lang[3]] = function() {
+            $(this).dialog("close")
+        },
+        t[dle_p_send] = function() {
+            if (1 > $("#dle-promt-text").val().length)
+                $("#dle-promt-text").addClass("ui-state-error");
+            else {
+                var t = $("#dle-promt-text").val();
+                $(this).dialog("close"),
+                    $("#dlepopup").remove(),
+                    $.post(site_root + "engine/ajax/complaint.php", {
+                        id: e,
+                        text: t,
+                        action: o
+                    }, function(e) {
+                        "ok" == e ? DLEalert(dle_p_send_ok, dle_info) : DLEalert(e, dle_info)
+                    })
+            }
+        },
+        $("#dlepopup").remove(),
+        $("body").append("<div id='dlepopup' title='" + dle_complaint + "' style='display:none'><br /><textarea name='dle-promt-text' id='dle-promt-text' class='ui-widget-content ui-corner-all' style='width:97%;height:100px; padding: .4em;'></textarea></div>"),
+        $("#dlepopup").dialog({
+            autoOpen: !0,
+            width: 500,
+            resizable: !1,
+            dialogClass: "modalfixed",
+            buttons: t,
+            open: function() {
+                $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+            }
+        }),
+        $(".modalfixed.ui-dialog").css({
+            position: "fixed"
+        }),
+        $("#dlepopup").dialog("option", "position", ["0", "0"])
+}
+
+function DLEalert(e, o) {
+    $("#dlepopup").remove(),
+        $("body").append("<div id='dlepopup' class='dle-alert' title='' style='display:none' title='" + o + "'><div class='mesage'>" + e + "</div><br></div>"),
+        $("#dlepopup").dialog({
+            autoOpen: !0,
+            resizable: !1,
+            width: 400,
+            modal: !0,
+            dialogClass: "modalfixed",
+            buttons: {
+                Ok: function() {
+                    $(this).dialog("close"),
+                        $("#dlepopup").remove()
+                }
+            },
+            open: function() {
+                $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+            }
+        }),
+        $(".modalfixed.ui-dialog").css({
+            position: "fixed"
+        }),
+        $("#dlepopup").dialog("option", "position", ["0", "0"])
+}
+
+function DLEalertC(e, o, t) {
+    $("#dlepopup").remove(),
+        $("body").append("<div id='dlepopup' class='dle-alert' title='' style='display:none' title='" + o + "'><div class='mesage'>" + e + "</div><br></div>"),
+        $("#dlepopup").dialog({
+            autoOpen: !0,
+            resizable: !1,
+            width: 400,
+            modal: !0,
+            dialogClass: "modalfixed",
+            buttons: {
+                Ok: function() {
+                    $(this).dialog("close"),
+                        $("#dlepopup").remove(),
+                        t()
+                }
+            },
+            open: function() {
+                $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+            }
+        }),
+        $(".modalfixed.ui-dialog").css({
+            position: "fixed"
+        }),
+        $("#dlepopup").dialog("option", "position", ["0", "0"])
+}
+
+function DLEconfirm(e, o, t) {
+    var i = {};
+    i = [{
+            text: dle_act_lang[1],
+            "class": "btn-cancel mini",
+            click: function() {
+                $(this).dialog("close"),
+                    $("#dlepopup").remove(),
+                    $(".subscribe").tooltip({
+                        position: {
+                            my: "center top+10",
+                            at: "center bottom",
+                            using: function(e, o) {
+                                $(this).css(e),
+                                    $("<div>").addClass("arrow").addClass(o.vertical).addClass(o.horizontal).appendTo(this)
+                            }
+                        }
+                    }).tooltip("close")
+            }
+        }, {
+            text: dle_act_lang[0],
+            "class": "mini",
+            click: function() {
+                $(this).dialog("close"),
+                    $("#dlepopup").remove(),
+                    t && t()
+            }
+        }],
+        $("#dlepopup").remove(),
+        $("body").append('<div id="dlepopup" class="dle-confirm" style="display:none" title="' + o + '""><div class="dialog-content"><p>' + e + "</p></div>"),
+        $("#dlepopup").dialog({
+            autoOpen: !0,
+            width: getWidth(),
+            modal: !0,
+            resizable: !1,
+            buttons: i,
+            open: function() {
+                $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+            }
+        }),
+        $('body').find(".ui-dialog").css({
+            top: $(window).scrollTop() + 40
+        }),
+        $("#dlepopup").dialog("option", "position", ["0", "0"])
+}
+
+function DLEprompt(e, o, t, i, n) {
+    var d = {};
+    d[dle_act_lang[3]] = function() {
+            $(this).dialog("close")
+        },
+        d[dle_act_lang[2]] = function() {
+            if (!n && 1 > $("#dle-promt-text").val().length)
+                $("#dle-promt-text").addClass("ui-state-error");
+            else {
+                var e = $("#dle-promt-text").val();
+                $(this).dialog("close"),
+                    $("#dlepopup").remove(),
+                    i && i(e)
+            }
+        },
+        $("#dlepopup").remove(),
+        $("body").append("<div id='dlepopup' class='dle-promt' title='" + t + "' style='display:none'>" + e + "<br /><br /><input type='text' name='dle-promt-text' id='dle-promt-text' class='ui-widget-content ui-corner-all' style='width:97%; padding: .4em;' value='" + o + "'/></div>"),
+        $("#dlepopup").dialog({
+            autoOpen: !0,
+            width: 500,
+            modal: !0,
+            resizable: !1,
+            buttons: d,
+            open: function() {
+                $('.ui-dialog').css('top', $(window).scrollTop() + 40);
+            }
+        }),
+        $(".ui-dialog").css({
+            position: "absolute",
+            top: $(window).scrollTop() + 40
+        }),
+        $("#dlepopup").dialog("option", "position", ["0", "0"]),
+        0 < o.length ? $("#dle-promt-text").select().focus() : $("#dle-promt-text").focus()
+}
+
+function ShowPopupProfile(e, o) {
+    var t = {};
+    return t[menu_profile] = function() {
+            document.location = dle_user_profile_link
+        },
+        5 != dle_group && (t[menu_send] = function() {
+            document.location = site_root + "index.php?do=pm&doaction=newpm&username=" + dle_user_profile
+        }),
+        1 == o && (t[menu_uedit] = function() {
+            $(this).dialog("close");
+            var e = {};
+            $("body").append('<div id="modal-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #666666; opacity: .40;filter:Alpha(Opacity=40); z-index: 999; display:none;"></div>'),
+                $("#modal-overlay").css({
+                    filter: "alpha(opacity=40)"
+                }).fadeIn("slow"),
+                $("#dleuserpopup").remove(),
+                $("body").append("<div id='dleuserpopup' title='" + menu_uedit + "' style='display:none'></div>"),
+                e[dle_act_lang[3]] = function() {
+                    $(this).dialog("close"),
+                        $("#dleuserpopup").remove()
+                },
+                e[dle_act_lang[5]] = function() {
+                    window.frames.edituserframe.confirmDelete(dle_login_hash)
+                },
+                e[dle_act_lang[4]] = function() {
+                    document.getElementById("edituserframe").contentWindow.document.getElementById("saveuserform").submit()
+                },
+                $("#dleuserpopup").dialog({
+                    autoOpen: !0,
+                    show: "fade",
+                    modal: !0,
+                    width: 560,
+                    resizable: !1,
+                    dialogClass: "modalfixed",
+                    buttons: e,
+                    open: function() {
+                        $("#dleuserpopup").html("<iframe name='edituserframe' id='edituserframe' width='100%' height='400' src='" + site_root + dle_admin + "?mod=editusers&action=edituser&user=" + dle_user_profile + "&skin=" + dle_skin + "' frameborder='0' marginwidth='0' marginheight='0' allowtransparency='true'></iframe>")
+                    },
+                    beforeClose: function() {
+                        $("#dleuserpopup").html("")
+                    },
+                    close: function() {
+                        $("#modal-overlay").fadeOut("slow", function() {
+                            $("#modal-overlay").remove()
+                        })
+                    }
+                }),
+                830 < $(window).width() && 530 < $(window).height() && ($(".modalfixed.ui-dialog").css({
+                        position: "fixed"
+                    }),
+                    $("#dleuserpopup").dialog("option", "position", ["0", "0"]))
+        }),
+        $("#dleprofilepopup").remove(),
+        $("body").append(e),
+        $("#dleprofilepopup").dialog({
+            autoOpen: !0,
+            show: "fade",
+            hide: "fade",
+            resizable: !1,
+            width: 640,
+            modal: !0
+        }), !1
+}
+
+function ShowProfile(e, o, t) {
+    return dle_user_profile == e && document.getElementById("dleprofilepopup") ? ($("#dleprofilepopup").dialog({
+        modal: !0
+    }).dialog("open"), !1) : (dle_user_profile = e,
+        dle_user_profile_link = o,
+        $.get(site_root + "engine/ajax/profile.php", {
+            name: e,
+            skin: dle_skin
+        }, function(e) {
+            
+                ShowPopupProfile(e, t)
+        }), !1)
+}
+
+function FastSearch() {
+    $("#story").attr("autocomplete", "off"),
+        $("#story").blur(function() {
+            $("#searchsuggestions").fadeOut()
+        }),
+        $("#story").keyup(function() {
+            var e = $(this).val();
+            0 == e.length ? $("#searchsuggestions").fadeOut() : dle_search_value != e && 3 < e.length && (clearInterval(dle_search_delay),
+                dle_search_delay = setInterval(function() {
+                    dle_do_search(e)
+                }, 600))
+        })
+}
+
+function dle_do_search(e) {
+    clearInterval(dle_search_delay),
+        $("#searchsuggestions").remove(),
+        $("body").append("<div id='searchsuggestions' style='display:none'></div>"),
+        $.post(site_root + "engine/ajax/search.php", {
+            query: "" + e
+        }, function(e) {
+            $("#searchsuggestions").html(e).fadeIn().css({
+                position: "absolute",
+                top: 0,
+                left: 0
+            }).position({
+                my: "left top",
+                at: "left bottom",
+                of: "#story",
+                collision: "fit flip"
+            })
+        }),
+        dle_search_value = e
+}
+
+function media_upload(e, o, t, i) {
+    var n = (new Date).getTime(),
+        d = "none";
+    return $("#mediaupload").remove(),
+        $("body").append("<div id='mediaupload' title='" + text_upload + "' style='display:none'></div>"),
+        $("#mediaupload").dialog({
+            autoOpen: !0,
+            width: 710,
+            resizable: !1,
+            dialogClass: "modalfixed",
+            open: function() {
+                $("#mediaupload").html("<iframe name='mediauploadframe' id='mediauploadframe' width='100%' height='550' src='" + site_root + "engine/ajax/upload.php?area=" + e + "&author=" + o + "&news_id=" + t + "&wysiwyg=" + i + "&skin=" + dle_skin + "&rndval=" + n + "' frameborder='0' marginwidth='0' marginheight='0' allowtransparency='true'></iframe>"),
+                    $(".ui-dialog").draggable("option", "containment", "")
+            },
+            dragStart: function() {
+                d = $(".modalfixed").css("box-shadow"),
+                    $(".modalfixed").fadeTo(0, .6).css("box-shadow", "none"),
+                    $("#mediaupload").css("visibility", "hidden")
+            },
+            dragStop: function() {
+                $(".modalfixed").fadeTo(0, 1).css("box-shadow", d),
+                    $("#mediaupload").css("visibility", "visible")
+            },
+            beforeClose: function() {
+                $("#mediaupload").html("")
+            }
+        }),
+        830 < $(window).width() && 530 < $(window).height() && ($(".modalfixed.ui-dialog").css({
+                position: "fixed"
+            }),
+            $("#mediaupload").dialog("option", "position", ["0", "0"])), !1
+}
+
+function dropdownmenu(e, o, t, i) {
+    return window.event ? event.cancelBubble = !0 : o.stopPropagation && o.stopPropagation(),
+        o = $("#dropmenudiv"),
+        o.is(":visible") ? (clearhidemenu(),
+            o.fadeOut("fast"), !1) : (o.remove(),
+            $("body").append('<div id="dropmenudiv" style="display:none;position:absolute;z-index:100;width:165px;"></div>'),
+            o = $("#dropmenudiv"),
+            o.html(t.join("")),
+            i && o.width(i),
+            t = $(document).width() - 30,
+            i = $(e).offset(),
+            t - i.left < o.width() && (i.left -= o.width() - $(e).width()),
+            o.css({
+                left: i.left + "px",
+                top: i.top + $(e).height() + "px"
+            }),
+            o.fadeTo("fast", .9),
+            o.mouseenter(function() {
+                clearhidemenu()
+            }).mouseleave(function() {
+                delayhidemenu()
+            }),
+            $(document).one("click", function() {
+                hidemenu()
+            }), !1)
+}
+
+function hidemenu() {
+    $("#dropmenudiv").fadeOut("fast")
+}
+
+function delayhidemenu() {
+    delayhide = setTimeout("hidemenu()", 1e3)
+}
+
+function clearhidemenu() {
+    "undefined" != typeof delayhide && clearTimeout(delayhide)
+}
+var c_cache = [],
+    dle_poll_voted = [],
+    dle_user_profile = "",
+    dle_user_profile_link = "";
+jQuery(function(e) {
+    e(document).keydown(function(o) {
+        if (13 == o.which && o.ctrlKey) {
+            if (window.getSelection)
+                var t = window.getSelection();
+            else
+                document.getSelection ? t = document.getSelection() : document.selection && (t = document.selection.createRange().text);
+            if ("" != t) {
+                if (255 < t.toString().length)
+                    return DLEalert(dle_big_text, dle_info), !1;
+                o = {},
+                    o[dle_act_lang[3]] = function() {
+                        e(this).dialog("close")
+                    },
+                    o[dle_p_send] = function() {
+                        if (1 > e("#dle-promt-text").val().length)
+                            e("#dle-promt-text").addClass("ui-state-error");
+                        else {
+                            var o = e("#dle-promt-text").val(),
+                                t = e("#orfom").text();
+                            e(this).dialog("close"),
+                                e("#dlepopup").remove(),
+                                e.post(site_root + "engine/ajax/complaint.php", {
+                                    seltext: t,
+                                    text: o,
+                                    action: "orfo",
+                                    url: window.location.href
+                                }, function(e) {
+                                    "ok" == e ? DLEalert(dle_p_send_ok, dle_info) : DLEalert(e, dle_info)
+                                })
+                        }
+                    },
+                    e("#dlepopup").remove(),
+                    e("body").append("<div id='dlepopup' class='dle-promt' title='" + dle_orfo_title + "' style='display:none'><textarea name='dle-promt-text' id='dle-promt-text' class='ui-widget-content ui-corner-all' style='width:97%;height:80px; padding: .4em;'></textarea><div id='orfom' style='display:none'>" + t + "</div></div>"),
+                    e("#dlepopup").dialog({
+                        autoOpen: !0,
+                        width: 600,
+                        modal: !0,
+                        resizable: !1,
+                        dialogClass: "modalfixed",
+                        buttons: o
+                    }),
+                    e(".modalfixed.ui-dialog").css({
+                        position: "fixed"
+                    }),
+                    e("#dlepopup").dialog("option", "position", ["0", "0"])
+            }
+        }
+    })
+});
