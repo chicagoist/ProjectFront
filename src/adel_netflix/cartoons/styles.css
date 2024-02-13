@@ -31,7 +31,7 @@ header {
   background-image: url(../images/3_D_Bilder.jpg);
   background-size: cover;
   font-size: 20px;
-  position: fixed;
+  /*  position: fixed;*/
   width: 100%;
   z-index: 1000;
 }
