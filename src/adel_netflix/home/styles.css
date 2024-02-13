@@ -4,6 +4,7 @@ body {
     grid-template-rows: repeat(1, 1fr auto 1fr);
     margin: 0;
     padding: 0;
+    background-color: rgb(84, 91, 91);
     /*background-image: url(../images/3_D_Bilder.jpg);*/
     background-size: cover;
 }
@@ -179,7 +180,6 @@ h3 {
     grid-template-columns: repeat(auto-fill, 1fr);
     align-items: center;
     justify-content: center;
-    background-color: #00a6ff;
     border-radius: 5px;
     border: 3px solid #545b5b;
     margin-top: 5px;
