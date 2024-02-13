@@ -1,0 +1,164 @@
+html,
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.page-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.597);
+  color: #fff;
+  padding: 10px 0;
+  z-index: 1;
+}
+
+header h1 {
+  margin-left: 40px;
+  font-size: 42px;
+}
+
+nav {
+  display: flex;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.top_ten {
+  width: 200px;
+  height: 350px;
+  padding: 20px;
+  border-width: 1px;
+  border-radius: 20px;
+  border-color: red;
+  border-style: double;
+  margin: 20px;
+  justify-items: center;
+}
+
+h2 {
+  color: white;
+  margin: 120px 0 0 40px;
+}
+
+.films-container {
+  display: flex;
+  margin: 60px;
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.film {
+  width: 200px;
+  height: 350px;
+  padding: 20px;
+  border-width: 1px;
+  border-radius: 20px;
+  border-color: red;
+  border-style: double;
+  margin: 20px;
+  justify-items: center;
+}
+
+img {
+  height: 90%;
+  width: 100%;
+}
+
+footer {
+  border-style: hidden;
+  border-width: 2px;
+  background-color: #ffffff21;
+  width: 100%;
+  color: rgb(233, 223, 223);
+  text-align: center;
+  margin-top: 40px;
+}
+
+p {
+  color: #fff;
+}
+
+.hero h2 {
+  margin-bottom: 20px;
+}
+
+.hero p {
+  margin-bottom: 30px;
+}
+
+.hero {
+  display: flex;
+  position: relative;
+  width: 100%;
+  background-color: #181616;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+  justify-content: center;
+}
+
+a {
+  color: #a9a9a9;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+footer {
+  background-color: #181616;
+  margin-top: 5px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.column ul li {
+  margin-bottom: 10px;
+}
+
+footer p {
+  margin: 0;
+}
